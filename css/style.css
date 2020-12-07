@@ -21,16 +21,16 @@ img {
 
 .main {
   position: relative;
-  width: 780px;
+  width: 900px;
   margin: 0 auto;
   padding: 15px;
   box-sizing: border-box; }
 
-@media screen and (max-width: 1310px) {
+@media screen and (max-width: 1430px) {
   .post-toc-aside {
     display: none; } }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 900px) {
   .main {
     width: 100%;
     margin-top: 50px;
@@ -62,7 +62,7 @@ h6 {
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .header .header-inner {
-    width: 780px;
+    width: 900px;
     margin: 0 auto; }
     .header .header-inner .header-nav-link {
       display: inline-block;
@@ -76,7 +76,7 @@ h6 {
         color: #1094e8;
         opacity: 1; }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 900px) {
   .header {
     display: none; } }
 
@@ -205,7 +205,7 @@ h6 {
     opacity: 1;
     transform: translateY(-100%); } }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 900px) {
   .mobile-header {
     display: block; } }
 
@@ -479,7 +479,7 @@ table {
   color: #444;
   box-sizing: border-box;
   position: absolute;
-  margin-left: 770px; }
+  margin-left: 890px; }
   .post-toc .post-toc-title {
     display: inline-block;
     border-top: 1px solid #e3e3e3;
@@ -507,7 +507,7 @@ table {
   .post-toc .back-to-top {
     margin-top: 30px; }
 
-@media screen and (max-width: 1310px) {
+@media screen and (max-width: 1430px) {
   .post-toc {
     display: none; } }
 
@@ -517,7 +517,7 @@ table {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
     .archive .archive-timeline .archive-year {
       font-weight: 400;
-      font-size: 28px;
+      font-size: 30px;
       margin: 15px 0; }
   .archive .archive-post {
     padding: 4px 20px;
@@ -544,7 +544,7 @@ table {
   .tags-archives .tag-text {
     display: inline-block;
     margin: 20px 0 5px 0;
-    font-size: 20px; }
+    font-size: 30px; }
   .tags-archives .tags-post {
     padding: 4px 20px;
     border-left: 1px solid #e3e3e3; }
@@ -580,7 +580,7 @@ table {
       transform: translateX(4px); }
   .paginator .nav-mobile {
     display: none; }
-  @media screen and (max-width: 780px) {
+  @media screen and (max-width: 900px) {
     .paginator .nav-mobile {
       display: inline; }
     .paginator .nav-default {
