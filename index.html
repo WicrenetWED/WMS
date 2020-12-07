@@ -53,7 +53,7 @@
             <span></span>
         </div>
         <div class="mobile-nav-title">
-            <a href="/wlms/" class="mobile-nav-title-link">Donny Chen's Blog</a>
+            <a href="/wlms/" class="mobile-nav-title-link">LMS's Blog</a>
         </div>
 
     </div>
@@ -84,34 +84,516 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/wlms/2018/10/29/hello-world/">hello,</a></h2>
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/SDSAndQACMasterData/">SDS 与 QAC文件主数据同步</a></h2>
             </div>
             <div class="post-meta">
-                <span class="post-time">2018-10-29</span>
+                <span class="post-time">2020-12-07</span>
                 
                 <span class="post-category">
                     
-                    <a class="category" href="/wlms/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                    <a class="category" href="/wlms/categories/%E4%B8%BB%E6%95%B0%E6%8D%AE/">主数据</a>
                     
                 </span>
                 
             </div>
             <div class="post-content">
                 
-                    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+                    <h1 id="13-SDS-amp-QAC文件主数据同步"><a href="#13-SDS-amp-QAC文件主数据同步" class="headerlink" title="13 SDS &amp; QAC文件主数据同步"></a>13 SDS &amp; QAC文件主数据同步</h1><h2 id="13-1-接口说明"><a href="#13-1-接口说明" class="headerlink" title="13.1 接口说明"></a>13.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>用于传输SDS 和 QAC文件主数据信息</td>
+</tr>
+<tr>
+<td>数据方向</td>
+<td>LMS–&gt;WMS</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>按需</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>期初一次性维护，后续WMS按需拉取数据</td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/SDSAndQACMasterData/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/InventTransferJournal/">库存转移</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E5%BA%93%E5%AD%98/">库存</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="12-库存转移"><a href="#12-库存转移" class="headerlink" title="12 库存转移"></a>12 库存转移</h1><h2 id="12-1-接口说明"><a href="#12-1-接口说明" class="headerlink" title="12.1 接口说明"></a>12.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>库存转移</td>
+</tr>
+<tr>
+<td>数据方向</td>
+<td>WMS -&gt; LMS</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>实时</td>
+</tr>
+<tr>
+<td>说明</td>
+<td></td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/InventTransferJournal/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/CRMMasterdata/">客户需求关系相关信息</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E4%B8%BB%E6%95%B0%E6%8D%AE/">主数据</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="11-CRM主数据"><a href="#11-CRM主数据" class="headerlink" title="11 CRM主数据"></a>11 CRM主数据</h1><h2 id="11-1-接口说明"><a href="#11-1-接口说明" class="headerlink" title="11.1 接口说明"></a>11.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>CRM主数据</td>
+</tr>
+<tr>
+<td>数据方向</td>
+<td>LMS–&gt;WMS</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>实时</td>
+</tr>
+<tr>
+<td>说明</td>
+<td></td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/CRMMasterdata/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/ProductMasterdata/">产品相关的信息</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E4%B8%BB%E6%95%B0%E6%8D%AE/">主数据</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="10-产品主数据"><a href="#10-产品主数据" class="headerlink" title="10 产品主数据"></a>10 产品主数据</h1><h2 id="10-1-接口说明"><a href="#10-1-接口说明" class="headerlink" title="10.1 接口说明"></a>10.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>产品主数据</td>
+</tr>
+<tr>
+<td>数据方向</td>
+<td>LMS–&gt;WMS</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>实时</td>
+</tr>
+<tr>
+<td>说明</td>
+<td></td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/ProductMasterdata/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/FreezeUnfreezeBarcode/">仓库冻结与解冻不良品信息</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E4%B8%8D%E8%89%AF%E5%93%81/">不良品</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="8-amp-9冻结解冻不良品"><a href="#8-amp-9冻结解冻不良品" class="headerlink" title="8&amp;9冻结解冻不良品"></a>8&amp;9冻结解冻不良品</h1><h2 id="8-1-接口说明"><a href="#8-1-接口说明" class="headerlink" title="8.1 接口说明"></a>8.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>冻结条码、解冻不良品条码</td>
+</tr>
+<tr>
+<td>数据方向</td>
+<td>WMS–&gt;LMS</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>实时</td>
+</tr>
+<tr>
+<td>说明</td>
+<td></td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/FreezeUnfreezeBarcode/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/InventCountJournal/">仓库盘点后的反馈结果</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E7%9B%98%E7%82%B9/">盘点</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="7-反馈盘点结果"><a href="#7-反馈盘点结果" class="headerlink" title="7 反馈盘点结果"></a>7 反馈盘点结果</h1><h2 id="7-1-接口说明"><a href="#7-1-接口说明" class="headerlink" title="7.1 接口说明"></a>7.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>LMS接收盘点数据</td>
+</tr>
+<tr>
+<td>数据方向</td>
+<td>WMS -&gt; LMS</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>实时</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>LMS接收盘点数据，做数据校验 如果系统已经存在数据，则会更新盘点数据 （更新主键：locationid+itemid+transdate）</td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/InventCountJournal/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/OutWarehouseInformation/">仓库出仓的订单及条码信息</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E5%87%BA%E5%BA%93/">出库</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="6-确认出仓"><a href="#6-确认出仓" class="headerlink" title="6 确认出仓"></a>6 确认出仓</h1><h2 id="6-1-接口说明"><a href="#6-1-接口说明" class="headerlink" title="6.1 接口说明"></a>6.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>功能</strong></td>
+<td>LMS接收已出仓订单信息</td>
+</tr>
+<tr>
+<td><strong>业务场景</strong></td>
+<td>确认出仓条码，包括订单，SKU，条形码</td>
+</tr>
+<tr>
+<td><strong>数据方向</strong></td>
+<td>WMS -&gt;LMS</td>
+</tr>
+<tr>
+<td><strong>实时性</strong></td>
+<td>实时</td>
+</tr>
+<tr>
+<td><strong>备注</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/OutWarehouseInformation/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/LoadShippingNotice/">发货通知下发</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E5%87%BA%E5%BA%93/">出库</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="5-发货通知"><a href="#5-发货通知" class="headerlink" title="5 发货通知"></a>5 发货通知</h1><h2 id="5-1-接口说明"><a href="#5-1-接口说明" class="headerlink" title="5.1 接口说明"></a>5.1 接口说明</h2><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>功能</strong></td>
+<td align="left">LMS下发发货信息至WMS</td>
+</tr>
+<tr>
+<td align="left"><strong>业务场景</strong></td>
+<td align="left">发货通知下发，包括订单，SKU，数量， 条码</td>
+</tr>
+<tr>
+<td align="left"><strong>数据方向</strong></td>
+<td align="left">LMS -&gt; WMS</td>
+</tr>
+<tr>
+<td align="left"><strong>实时性</strong></td>
+<td align="left">实时</td>
+</tr>
+<tr>
+<td align="left"><strong>备注</strong></td>
+<td align="left">下发订单类型包括销售单，转移单</td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/LoadShippingNotice/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/ReceiptCompletedWaybills/">仓库收货完成</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E5%85%A5%E5%BA%93/">入库</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="4-收货完成"><a href="#4-收货完成" class="headerlink" title="4 收货完成"></a>4 收货完成</h1><h2 id="4-1-接口说明"><a href="#4-1-接口说明" class="headerlink" title="4.1 接口说明"></a>4.1 接口说明</h2><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>功能</strong></td>
+<td align="left">LMS接收收货订单信息</td>
+</tr>
+<tr>
+<td align="left"><strong>业务场景</strong></td>
+<td align="left">收货完成上传，包括订单，SKU，数量，条码</td>
+</tr>
+<tr>
+<td align="left"><strong>数据方向</strong></td>
+<td align="left">WMS -&gt;LMS</td>
+</tr>
+<tr>
+<td align="left"><strong>实时性</strong></td>
+<td align="left">实时</td>
+</tr>
+<tr>
+<td align="left"><strong>备注</strong></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/ReceiptCompletedWaybills/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wlms/2020/12/07/InboundOrderIssued/">入库通知下发</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E5%85%A5%E5%BA%93/">入库</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="3-入库通知下发"><a href="#3-入库通知下发" class="headerlink" title="3 入库通知下发"></a>3 入库通知下发</h1><h2 id="3-1-接口说明"><a href="#3-1-接口说明" class="headerlink" title="3.1 接口说明"></a>3.1 接口说明</h2><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>功能</strong></td>
+<td align="left">LMS下发入库信息至WMS</td>
+</tr>
+<tr>
+<td align="left"><strong>业务场景</strong></td>
+<td align="left">入库通知下发，包括订单，SKU，数量， 条码</td>
+</tr>
+<tr>
+<td align="left"><strong>数据方向</strong></td>
+<td align="left">LMS -&gt; WMS</td>
+</tr>
+<tr>
+<td align="left"><strong>实时性</strong></td>
+<td align="left">实时</td>
+</tr>
+<tr>
+<td align="left"><strong>备注</strong></td>
+<td align="left">下发订单类型包括采购单，转移单，销售退单</td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wlms/2020/12/07/InboundOrderIssued/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
                 
             </div>
         </article>
@@ -144,7 +626,7 @@
             
             2020
             &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Donny Chen</a>
+            <a target="_blank" href="https://github.com/iJinxin">LMS</a>
         </p>
         <p class="theme-info">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -

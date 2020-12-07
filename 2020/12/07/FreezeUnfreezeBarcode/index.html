@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>LMS &amp; WMS 接口开发文档</title>
+    
+<link rel="stylesheet" href="/wlms/css/style.css">
+
+    
+<link rel="stylesheet" href="/wlms/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/wlms/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/wlms/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+            <a href="/wlms/tags" class="header-nav-link">
+                标签
+            </a>
+            
+
+            
+            <a href="/wlms/about/" class="header-nav-link">
+                关于
+            </a>
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/wlms/" class="mobile-nav-title-link">LMS's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/wlms/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/wlms/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/wlms/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wlms/about/" class="mobile-nav-link">关于</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">仓库冻结与解冻不良品信息</h2>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E4%B8%8D%E8%89%AF%E5%93%81/">不良品</a>
+                    
+                </span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#8-amp-9%E5%86%BB%E7%BB%93%E8%A7%A3%E5%86%BB%E4%B8%8D%E8%89%AF%E5%93%81"><span class="toc-text">8&amp;9冻结解冻不良品</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">8.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E8%AF%B7%E6%B1%82URL%E4%B8%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">8.2 请求URL与方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">8.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">8.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5-%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B"><span class="toc-text">8.5 请求示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">8.6 返回示例</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h1 id="8-amp-9冻结解冻不良品"><a href="#8-amp-9冻结解冻不良品" class="headerlink" title="8&amp;9冻结解冻不良品"></a>8&amp;9冻结解冻不良品</h1><h2 id="8-1-接口说明"><a href="#8-1-接口说明" class="headerlink" title="8.1 接口说明"></a>8.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>冻结条码、解冻不良品条码</td>
+</tr>
+<tr>
+<td>数据方向</td>
+<td>WMS–&gt;LMS</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>实时</td>
+</tr>
+<tr>
+<td>说明</td>
+<td></td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+<h2 id="8-2-请求URL与方式"><a href="#8-2-请求URL与方式" class="headerlink" title="8.2 请求URL与方式"></a>8.2 请求URL与方式</h2><p>Url:/api/FreezeUnfreezeBarcode</p>
+<p>方法：Post </p>
+<p>协议：http</p>
+<h2 id="8-3-输入参数"><a href="#8-3-输入参数" class="headerlink" title="8.3 输入参数"></a>8.3 输入参数</h2><p>请求头参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Token</td>
+<td>令牌，用于认证</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>请求体Body参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ItemId</td>
+<td>物料编号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>InventBatchId</td>
+<td>批次号</td>
+<td>String</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>InventLocationId</td>
+<td>仓库</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Status</td>
+<td>状态</td>
+<td>int</td>
+<td>是</td>
+<td>0：解冻 <br />3：已冻结  （解冻不良品传0，冻结条码传3）</td>
+</tr>
+<tr>
+<td>Barcode</td>
+<td>条码信息</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>ExtendField</td>
+<td>扩展字段</td>
+<td>String</td>
+<td>否</td>
+<td>支持后期扩展</td>
+</tr>
+</tbody></table>
+<h2 id="8-4-输出参数"><a href="#8-4-输出参数" class="headerlink" title="8.4 输出参数"></a>8.4 输出参数</h2><table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>中文名称</th>
+<th>类型</th>
+<th>备注</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StatusCode</td>
+<td>状态码</td>
+<td>int</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Message</td>
+<td>消息</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Data</td>
+<td>数据</td>
+<td>object</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Status Code说明：</p>
+<p>LMS接收到数据后，更新处理结果，提供的反馈状态码：</p>
+<table>
+<thead>
+<tr>
+<th align="right">Status Code</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">100</td>
+<td>OK</td>
+</tr>
+<tr>
+<td align="right">101</td>
+<td>验证失败</td>
+</tr>
+<tr>
+<td align="right">102</td>
+<td>接收成功</td>
+</tr>
+<tr>
+<td align="right">103</td>
+<td>处理成功</td>
+</tr>
+<tr>
+<td align="right">104</td>
+<td>空内容</td>
+</tr>
+<tr>
+<td align="right">105</td>
+<td>不正确的请求</td>
+</tr>
+<tr>
+<td align="right">负数</td>
+<td>-1， -xxx 出现异常情况</td>
+</tr>
+</tbody></table>
+<h2 id="8-5-请求示例"><a href="#8-5-请求示例" class="headerlink" title="8.5 请求示例"></a>8.5 请求示例</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line">	<span class="attr">&quot;ItemId&quot;</span>: <span class="string">&quot;3389637&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;InventBatchId&quot;</span>: <span class="string">&quot;M1018167&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;InventLocationId&quot;</span>: <span class="string">&quot;CNBS2406&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;Status&quot;</span>: <span class="number">0</span>,</span><br><span class="line">	<span class="attr">&quot;Barcode&quot;</span>: <span class="string">&quot;ZJ03389637200122M10181670353014&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;ExtendField&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="8-6-返回示例"><a href="#8-6-返回示例" class="headerlink" title="8.6 返回示例"></a>8.6 返回示例</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">&quot;statusCode&quot;</span>: <span class="number">103</span>,</span><br><span class="line">	<span class="attr">&quot;message&quot;</span>: <span class="string">&quot;success&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;data&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/wlms/tags/8-9%E5%86%BB%E7%BB%93%E8%A7%A3%E5%86%BB%E4%B8%8D%E8%89%AF%E5%93%81/" title="8&amp;9冻结解冻不良品">8&amp;9冻结解冻不良品</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/wlms/2020/12/07/ProductMasterdata/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">产品相关的信息</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
+        
+        
+            <a class="next" href="/wlms/2020/12/07/InventCountJournal/">
+                <span class="nav-default">仓库盘点后的反馈结果</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+    <a class="social-link" target="_blank" href="https://github.com/DonnyChen">
+        <i class="iconfont icon-github"></i>
+    </a>
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2020
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">LMS</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/wlms/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+    var gitment = new Gitment({
+        id: '仓库冻结与解冻不良品信息',
+        owner: 'donny_df_mse@outlook.com',
+        repo: 'https://github.com/WicrenetWED/wlms.git',
+        oauth: {
+            client_id: '0e69425c9ea4a085dc2b',
+            client_secret: 'd5ec6e0b28e3905183a79427cf3bcc84832176d8'
+        }
+    });
+    gitment.render('comment-container');
+    
+
+</script>
+</html>
