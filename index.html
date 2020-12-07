@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <title>Hexo</title>
+    <title>LMS &amp; WMS 接口开发文档</title>
     
 <link rel="stylesheet" href="/wlms/css/style.css">
 
@@ -21,22 +21,26 @@
         <nav class="header-nav">
             
             <a href="/wlms/" class="header-nav-link" >
-                Home
+                首页
             </a>
             
 
             
             <a href="/wlms/archives" class="header-nav-link">
-                Archives
+                归档
             </a>
             
 
             
             <a href="/wlms/tags" class="header-nav-link">
-                Tags
+                标签
             </a>
             
 
+            
+            <a href="/wlms/about/" class="header-nav-link">
+                关于
+            </a>
             
         </nav>
     </div>
@@ -49,7 +53,7 @@
             <span></span>
         </div>
         <div class="mobile-nav-title">
-            <a href="/wlms/" class="mobile-nav-title-link">John Doe's Blog</a>
+            <a href="/wlms/" class="mobile-nav-title-link">Donny Chen's Blog</a>
         </div>
 
     </div>
@@ -57,19 +61,19 @@
         <ul class="mobile-menu-list">
             <li class="mobile-menu-item">
                 <i class="iconfont icon-home"></i>
-                <a href="/wlms/" class="mobile-nav-link">Home</a>
+                <a href="/wlms/" class="mobile-nav-link">首页</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-archive"></i>
-                <a href="/wlms/archives" class="mobile-nav-link">Archives</a>
+                <a href="/wlms/archives" class="mobile-nav-link">归档</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-tag"></i>
-                <a href="/wlms/tags" class="mobile-nav-link">Tags</a>
+                <a href="/wlms/tags" class="mobile-nav-link">标签</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-about"></i>
-                <a href="/wlms/about/" class="mobile-nav-link">About</a>
+                <a href="/wlms/about/" class="mobile-nav-link">关于</a>
             </li>
         </ul>
     </nav>
@@ -80,10 +84,16 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/wlms/2020/12/06/hello-world/">Hello World</a></h2>
+                <h2><a class="post-title-link" href="/wlms/2018/10/29/hello-world/">hello,</a></h2>
             </div>
             <div class="post-meta">
-                <span class="post-time">2020-12-06</span>
+                <span class="post-time">2018-10-29</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wlms/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                    
+                </span>
                 
             </div>
             <div class="post-content">
@@ -118,6 +128,10 @@
 </div>
 <footer class="footer-social">
     
+    <a class="social-link" target="_blank" href="https://github.com/DonnyChen">
+        <i class="iconfont icon-github"></i>
+    </a>
+    
 
     
 
@@ -130,7 +144,7 @@
             
             2020
             &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">John Doe</a>
+            <a target="_blank" href="https://github.com/iJinxin">Donny Chen</a>
         </p>
         <p class="theme-info">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
@@ -146,6 +160,17 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
+    
+    var gitment = new Gitment({
+        id: '',
+        owner: 'donny_df_mse@outlook.com',
+        repo: 'https://github.com/WicrenetWED/wlms.git',
+        oauth: {
+            client_id: '0e69425c9ea4a085dc2b',
+            client_secret: 'd5ec6e0b28e3905183a79427cf3bcc84832176d8'
+        }
+    });
+    gitment.render('comment-container');
     
 
 </script>
