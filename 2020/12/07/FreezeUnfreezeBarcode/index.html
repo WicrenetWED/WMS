@@ -46,6 +46,11 @@
                 </a>
             
             
+                <a href="/wms/issues/" class="header-nav-link">
+                    问题列表
+                </a>
+            
+            
         </nav>
     </div>
 </header>
@@ -79,6 +84,10 @@
                 <i class="iconfont icon-about"></i>
                 <a href="/wms/status/" class="mobile-nav-link">开发状态</a>
             </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/issues/" class="mobile-nav-link">问题列表</a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -102,7 +111,7 @@
         </div>
         <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#8-amp-9%E5%86%BB%E7%BB%93%E8%A7%A3%E5%86%BB%E4%B8%8D%E8%89%AF%E5%93%81"><span class="toc-text">8&amp;9冻结解冻不良品</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">8.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E8%AF%B7%E6%B1%82URL%E4%B8%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">8.2 请求URL与方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">8.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">8.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5-%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B"><span class="toc-text">8.5 请求示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">8.6 返回示例</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#8-amp-9%E5%86%BB%E7%BB%93%E8%A7%A3%E5%86%BB%E4%B8%8D%E8%89%AF%E5%93%81"><span class="toc-text">8&amp;9冻结解冻不良品</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">8.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E8%AF%B7%E6%B1%82URL%E4%B8%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">8.2 请求URL与方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">8.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">8.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5-%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B"><span class="toc-text">8.5 请求示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">8.6 返回示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-7-%E7%9B%B8%E5%85%B3%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86"><span class="toc-text">8.7 相关业务知识</span></a></li></ol></li></ol>
     <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
@@ -129,7 +138,7 @@
 </tr>
 <tr>
 <td>说明</td>
-<td></td>
+<td>冻结时条码状态需为“正常”， 解冻时条码状态需为已冻结或者已完成异常品申报流程</td>
 </tr>
 </tbody></table>
 <a id="more"></a>
@@ -284,6 +293,9 @@
 
 
 <h2 id="8-6-返回示例"><a href="#8-6-返回示例" class="headerlink" title="8.6 返回示例"></a>8.6 返回示例</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">&quot;statusCode&quot;</span>: <span class="number">103</span>,</span><br><span class="line">	<span class="attr">&quot;message&quot;</span>: <span class="string">&quot;success&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;data&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-7-相关业务知识"><a href="#8-7-相关业务知识" class="headerlink" title="8.7 相关业务知识"></a>8.7 相关业务知识</h2><p>冻结，解冻，LMS的条码有两个状态，一个是库存状态，还有一个是质量状态。这里讲的冻结、解冻是质量的条码状态。传过来冻结的前提，必须是LMS里这个条码是“正常”状态，传过来解冻的前提是LMS里这个条码是“已冻结”状态，除此之外的其他状态，都会被我们接口报错返回。“不良品”状态是LMS操作完成了不良品申报后，变的状态。“不良品”状态是不允许冻结、解冻的。必须通过申报后恢复成“正常”。所以，如果你们的WMS在设计的时候也要考虑到“不良品”这个状态的设置和达到的控制点。因为“不良品”是在LMS里操作的，所以可能你们的WMS里可能会少一个“不良品”的状态。但好在“不良品”状态是给后续QC处理意见（LMS上操作使用的），如果你们WMS缺少这个“不良品”状态，也可以用条码所在的虚拟仓（不良品仓）来控制发货。</p>
+
         </div>
         
         <div class="post-tag">
