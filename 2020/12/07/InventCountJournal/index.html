@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>LMS &amp; WMS 接口开发文档</title>
+    
+<link rel="stylesheet" href="/wms/css/style.css">
+
+    
+<link rel="stylesheet" href="/wms/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/wms/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/wms/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+            <a href="/wms/tags" class="header-nav-link">
+                标签
+            </a>
+            
+
+            
+
+
+            
+                <a href="/wms/status/" class="header-nav-link">
+                    开发状态
+                </a>
+            
+            
+                <a href="/wms/issues/" class="header-nav-link">
+                    问题列表
+                </a>
+            
+            
+                <a href="/wms/changes/" class="header-nav-link">
+                    变更日志
+                </a>
+            
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/wms/" class="mobile-nav-title-link">LMS接口开发文档</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/wms/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/wms/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/wms/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/status/" class="mobile-nav-link">开发状态</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/issues/" class="mobile-nav-link">问题列表</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">仓库盘点后的反馈结果</h2>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07 15:14:46</span>
+                
+                <span class="post-time">2020-12-11 13:48:39</span>
+                
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wms/categories/%E7%9B%98%E7%82%B9/">盘点</a>
+                    
+                </span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E5%8F%8D%E9%A6%88%E7%9B%98%E7%82%B9%E7%BB%93%E6%9E%9C"><span class="toc-text">7 反馈盘点结果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">7.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E8%AF%B7%E6%B1%82URL%E4%B8%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">7.2 请求URL与方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">7.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">7.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B"><span class="toc-text">7.5 请求示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">7.6 返回示例</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h1 id="7-反馈盘点结果"><a href="#7-反馈盘点结果" class="headerlink" title="7 反馈盘点结果"></a>7 反馈盘点结果</h1><h2 id="7-1-接口说明"><a href="#7-1-接口说明" class="headerlink" title="7.1 接口说明"></a>7.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>LMS接收盘点数据</td>
+</tr>
+<tr>
+<td>数据方向</td>
+<td>WMS -&gt; LMS</td>
+</tr>
+<tr>
+<td>实时性</td>
+<td>实时</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>LMS接收盘点数据，做数据校验 如果系统已经存在数据，则会更新盘点数据 （更新主键：locationid+itemid+transdate）</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+<h2 id="7-2-请求URL与方式"><a href="#7-2-请求URL与方式" class="headerlink" title="7.2 请求URL与方式"></a>7.2 请求URL与方式</h2><p><strong>Url</strong>:/api/InventCountJournal</p>
+<blockquote>
+<p><strong>测试地址：<a target="_blank" rel="noopener" href="https://139.219.15.177/BPServiceHub/api/InventCountJournal">https://139.219.15.177/BPServiceHub/api/InventCountJournal</a></strong></p>
+</blockquote>
+<p><strong>方法</strong>：Post</p>
+<p><strong>协议</strong>：http</p>
+<h2 id="7-3-输入参数"><a href="#7-3-输入参数" class="headerlink" title="7.3 输入参数"></a>7.3 输入参数</h2><p>Header 需传参Token</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Token</td>
+<td>令牌</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>请求Body参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ItemId</td>
+<td>物料编号</td>
+<td>String</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>InventSiteId</td>
+<td>站点</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>InventOnHand</td>
+<td>已盘点的现有量</td>
+<td>Float</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>InventBatchId</td>
+<td>批处理号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>InventLocationId</td>
+<td>仓库</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>PalletId</td>
+<td>托盘编号</td>
+<td>String</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>Status</td>
+<td>状态</td>
+<td>String</td>
+<td>是</td>
+<td>0：初始 1：已盘点 2：已废弃</td>
+</tr>
+<tr>
+<td>TransDate</td>
+<td>业务日期</td>
+<td>String</td>
+<td>是</td>
+<td>业务日期 格式：2020-11-11</td>
+</tr>
+<tr>
+<td>ExtendField</td>
+<td>扩展字段</td>
+<td>String</td>
+<td>否</td>
+<td>支持后期扩展</td>
+</tr>
+</tbody></table>
+<h2 id="7-4-输出参数"><a href="#7-4-输出参数" class="headerlink" title="7.4 输出参数"></a>7.4 输出参数</h2><table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>描述</th>
+<th>类型</th>
+<th>备注</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StatusCode</td>
+<td>状态码</td>
+<td>int</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Message</td>
+<td>消息</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Data</td>
+<td>数据</td>
+<td>object</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Status Code</p>
+<p>LMS接收到数据后，更新处理结果，提供的反馈状态码：</p>
+<table>
+<thead>
+<tr>
+<th align="right">Status Code</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">100</td>
+<td>OK</td>
+</tr>
+<tr>
+<td align="right">101</td>
+<td>验证失败</td>
+</tr>
+<tr>
+<td align="right">102</td>
+<td>接收成功</td>
+</tr>
+<tr>
+<td align="right">103</td>
+<td>处理成功</td>
+</tr>
+<tr>
+<td align="right">104</td>
+<td>空内容</td>
+</tr>
+<tr>
+<td align="right">105</td>
+<td>不正确的请求</td>
+</tr>
+<tr>
+<td align="right">负数</td>
+<td>-1， -xxx 出现异常情况</td>
+</tr>
+</tbody></table>
+<h2 id="7-5-请求示例"><a href="#7-5-请求示例" class="headerlink" title="7.5 请求示例"></a>7.5 请求示例</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line">	<span class="attr">&quot;ItemId&quot;</span>: <span class="string">&quot;3370441&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;InventSiteId&quot;</span>: <span class="string">&quot;CQ C1 RDC&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;InventOnHand&quot;</span>: <span class="number">45.00</span>,</span><br><span class="line">	<span class="attr">&quot;InventBatchId&quot;</span>: <span class="string">&quot;0S191811&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;InventLocationId&quot;</span>: <span class="string">&quot;CNBS2420&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;PalletId&quot;</span>: <span class="string">&quot;pallet_001&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;Status&quot;</span>: <span class="number">1</span>,</span><br><span class="line">	<span class="attr">&quot;TransDate&quot;</span>: <span class="string">&quot;2020-11-11&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;ExtendField&quot;</span>: <span class="literal">null</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">	<span class="attr">&quot;ItemId&quot;</span>: <span class="string">&quot;3349598&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;InventSiteId&quot;</span>: <span class="string">&quot;CQ C1 RDC&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;InventOnHand&quot;</span>: <span class="number">45.00</span>,</span><br><span class="line">	<span class="attr">&quot;InventBatchId&quot;</span>: <span class="string">&quot;0S191811&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;InventLocationId&quot;</span>: <span class="string">&quot;CNBS2420&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;PalletId&quot;</span>: <span class="string">&quot;pallet_001&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;Status&quot;</span>: <span class="number">1</span>,</span><br><span class="line">	<span class="attr">&quot;TransDate&quot;</span>: <span class="string">&quot;2020-11-11&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;ExtendField&quot;</span>: <span class="literal">null</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-6-返回示例"><a href="#7-6-返回示例" class="headerlink" title="7.6 返回示例"></a>7.6 返回示例</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">&quot;statusCode&quot;</span>: <span class="number">103</span>,</span><br><span class="line">	<span class="attr">&quot;message&quot;</span>: <span class="string">&quot;接收2条，更新2条，创建0条&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;data&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/wms/tags/7%E5%8F%8D%E9%A6%88%E7%9B%98%E7%82%B9%E7%BB%93%E6%9E%9C/" title="7反馈盘点结果">7反馈盘点结果</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/wms/2020/12/07/FreezeUnfreezeBarcode/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">仓库冻结与解冻不良品信息</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
+        
+        
+            <a class="next" href="/wms/2020/12/07/OutWarehouseInformation/">
+                <span class="nav-default">仓库出仓的订单及条码信息</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2020
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">LMS</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/wms/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>

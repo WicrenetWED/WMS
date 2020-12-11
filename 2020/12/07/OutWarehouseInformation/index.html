@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>LMS &amp; WMS 接口开发文档</title>
+    
+<link rel="stylesheet" href="/wms/css/style.css">
+
+    
+<link rel="stylesheet" href="/wms/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/wms/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/wms/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+            <a href="/wms/tags" class="header-nav-link">
+                标签
+            </a>
+            
+
+            
+
+
+            
+                <a href="/wms/status/" class="header-nav-link">
+                    开发状态
+                </a>
+            
+            
+                <a href="/wms/issues/" class="header-nav-link">
+                    问题列表
+                </a>
+            
+            
+                <a href="/wms/changes/" class="header-nav-link">
+                    变更日志
+                </a>
+            
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/wms/" class="mobile-nav-title-link">LMS接口开发文档</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/wms/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/wms/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/wms/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/status/" class="mobile-nav-link">开发状态</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/issues/" class="mobile-nav-link">问题列表</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">仓库出仓的订单及条码信息</h2>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07 15:11:09</span>
+                
+                <span class="post-time">2020-12-11 13:48:39</span>
+                
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wms/categories/%E5%87%BA%E5%BA%93/">出库</a>
+                    
+                </span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E7%A1%AE%E8%AE%A4%E5%87%BA%E4%BB%93"><span class="toc-text">6 确认出仓</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">6.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E8%AF%B7%E6%B1%82URL%E4%B8%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">6.2 请求URL与方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">6.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">6.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B"><span class="toc-text">6.5 请求示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">6.6 返回示例</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h1 id="6-确认出仓"><a href="#6-确认出仓" class="headerlink" title="6 确认出仓"></a>6 确认出仓</h1><h2 id="6-1-接口说明"><a href="#6-1-接口说明" class="headerlink" title="6.1 接口说明"></a>6.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>功能</strong></td>
+<td>LMS接收已出仓订单信息</td>
+</tr>
+<tr>
+<td><strong>业务场景</strong></td>
+<td>确认出仓条码，包括订单，SKU，条形码</td>
+</tr>
+<tr>
+<td><strong>数据方向</strong></td>
+<td>WMS -&gt;LMS</td>
+</tr>
+<tr>
+<td><strong>实时性</strong></td>
+<td>实时</td>
+</tr>
+<tr>
+<td><strong>备注</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+<h2 id="6-2-请求URL与方式"><a href="#6-2-请求URL与方式" class="headerlink" title="6.2 请求URL与方式"></a>6.2 请求URL与方式</h2><p><strong>URL：</strong>/api/OutWarehouseInformation</p>
+<blockquote>
+<p><strong><em>测试地址：<a target="_blank" rel="noopener" href="https://139.219.15.177/BPServiceHub/api/OutWarehouseInformation">https://139.219.15.177/BPServiceHub/api/OutWarehouseInformation</a></em></strong></p>
+</blockquote>
+<p><strong>方式：POST</strong></p>
+<p><strong>协议：HTTP</strong></p>
+<h2 id="6-3-输入参数"><a href="#6-3-输入参数" class="headerlink" title="6.3 输入参数"></a>6.3 输入参数</h2><p><strong>Header参数：</strong>需要设置Token 参数以获得接口访问权限</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Token</td>
+<td>令牌，用于认证</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Body的参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>示例值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LoadId</td>
+<td>运单编号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OrderId</td>
+<td>订单编号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ItemId</td>
+<td>物料编号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+<td>SKU</td>
+</tr>
+<tr>
+<td>Qty</td>
+<td>订运单数量</td>
+<td>Float</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CheckOutTime</td>
+<td>出仓时间</td>
+<td>DateTime</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>InventBatchId</td>
+<td>批次号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>InventLocationId</td>
+<td>仓库</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PalletId</td>
+<td>托盘编号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WMSLocation</td>
+<td>出库地标编号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Barcode</td>
+<td>条码信息</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="6-4-输出参数"><a href="#6-4-输出参数" class="headerlink" title="6.4 输出参数"></a>6.4 输出参数</h2><p>Status Code**</p>
+<p>LMS接收到数据后，更加处理结果，提供的反馈状态码：</p>
+<table>
+<thead>
+<tr>
+<th align="right">Status Code</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">100</td>
+<td>OK</td>
+</tr>
+<tr>
+<td align="right">101</td>
+<td>验证失败</td>
+</tr>
+<tr>
+<td align="right">102</td>
+<td>接收成功</td>
+</tr>
+<tr>
+<td align="right">103</td>
+<td>处理成功</td>
+</tr>
+<tr>
+<td align="right">104</td>
+<td>空内容</td>
+</tr>
+<tr>
+<td align="right">105</td>
+<td>不正确的请求</td>
+</tr>
+<tr>
+<td align="right">负数</td>
+<td>-1， -xxx 出现异常情况</td>
+</tr>
+</tbody></table>
+<p><strong>Message</strong>：</p>
+<p>LMS的响应信息</p>
+<p><strong>Data</strong>：</p>
+<p>接收成功对应的是接收数据的记录数，如异常提示错误信息。</p>
+<h2 id="6-5-请求示例"><a href="#6-5-请求示例" class="headerlink" title="6.5 请求示例"></a>6.5 请求示例</h2><p>支持JSON格式，请严格按照 <strong>运单</strong>（LoadId）+ <strong>订单</strong>（OrderId) + <strong>SKU</strong> (ItemId) 组合回传对应的条码信息</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;loadId&quot;</span>: <span class="string">&quot;HT-BL20200718SD0005&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;orderId&quot;</span>: <span class="string">&quot;51848725&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;itemId&quot;</span>: <span class="string">&quot;3331247&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;qty&quot;</span>:<span class="number">3</span>,</span><br><span class="line">    <span class="attr">&quot;checkOutTime&quot;</span>: <span class="string">&quot;2020-12-05T14:45:44&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;outWHSBarcodes&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;inventLocationId&quot;</span>: <span class="string">&quot;CNBS2436&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;palletId&quot;</span>: <span class="string">&quot;BS13KS08205&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wmsLocation&quot;</span>: <span class="string">&quot;GZ1-EX02&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;barcode&quot;</span>: <span class="string">&quot;TC03331247200226230299626732286&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;inventBatchId&quot;</span>: <span class="string">&quot;23029962&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;inventLocationId&quot;</span>: <span class="string">&quot;CNBS2436&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;palletId&quot;</span>: <span class="string">&quot;BS13KS08205&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wmsLocation&quot;</span>: <span class="string">&quot;GZ1-EX02&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;barcode&quot;</span>: <span class="string">&quot;TC03331247200226230299626732287&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;inventBatchId&quot;</span>: <span class="string">&quot;23029962&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;inventLocationId&quot;</span>: <span class="string">&quot;CNBS2436&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;palletId&quot;</span>: <span class="string">&quot;BS13KS08205&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wmsLocation&quot;</span>: <span class="string">&quot;GZ1-EX02&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;barcode&quot;</span>: <span class="string">&quot;TC03331247200226230299626732288&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;inventBatchId&quot;</span>: <span class="string">&quot;23029962&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;loadId&quot;</span>: <span class="string">&quot;HT-BL20200718SD0005&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;orderId&quot;</span>: <span class="string">&quot;51848725&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;itemId&quot;</span>: <span class="string">&quot;3331248&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;qty&quot;</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="attr">&quot;checkOutTime&quot;</span>: <span class="string">&quot;2020-12-05T14:45:44&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;outWHSBarcodes&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;inventLocationId&quot;</span>: <span class="string">&quot;CNBS2436&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;palletId&quot;</span>: <span class="string">&quot;BS13KS08206&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wmsLocation&quot;</span>: <span class="string">&quot;GZ1-EX02&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;barcode&quot;</span>: <span class="string">&quot;TC03331248200226230299626732286&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;inventBatchId&quot;</span>: <span class="string">&quot;23029963&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;inventLocationId&quot;</span>: <span class="string">&quot;CNBS2436&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;palletId&quot;</span>: <span class="string">&quot;BS13KS08206&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wmsLocation&quot;</span>: <span class="string">&quot;GZ1-EX02&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;barcode&quot;</span>: <span class="string">&quot;TC03331248200226230299626732287&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;inventBatchId&quot;</span>: <span class="string">&quot;23029963&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-6-返回示例"><a href="#6-6-返回示例" class="headerlink" title="6.6 返回示例"></a>6.6 返回示例</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="attr">&quot;statusCode&quot;</span>: <span class="number">102</span>,</span><br><span class="line"></span><br><span class="line">  <span class="attr">&quot;message&quot;</span>: <span class="string">&quot;成功的记录总数 2&quot;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="attr">&quot;data&quot;</span>: <span class="string">&quot;2&quot;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/wms/tags/6%E7%A1%AE%E8%AE%A4%E5%87%BA%E4%BB%93/" title="6确认出仓">6确认出仓</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/wms/2020/12/07/InventCountJournal/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">仓库盘点后的反馈结果</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
+        
+        
+            <a class="next" href="/wms/2020/12/07/LoadShippingNotice/">
+                <span class="nav-default">发货通知下发</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2020
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">LMS</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/wms/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>

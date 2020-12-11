@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>LMS &amp; WMS 接口开发文档</title>
+    
+<link rel="stylesheet" href="/wms/css/style.css">
+
+    
+<link rel="stylesheet" href="/wms/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/wms/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/wms/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+            <a href="/wms/tags" class="header-nav-link">
+                标签
+            </a>
+            
+
+            
+
+
+            
+                <a href="/wms/status/" class="header-nav-link">
+                    开发状态
+                </a>
+            
+            
+                <a href="/wms/issues/" class="header-nav-link">
+                    问题列表
+                </a>
+            
+            
+                <a href="/wms/changes/" class="header-nav-link">
+                    变更日志
+                </a>
+            
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/wms/" class="mobile-nav-title-link">LMS接口开发文档</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/wms/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/wms/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/wms/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/status/" class="mobile-nav-link">开发状态</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/issues/" class="mobile-nav-link">问题列表</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">发货通知下发</h2>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07 15:09:05</span>
+                
+                <span class="post-time">2020-12-11 13:48:39</span>
+                
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wms/categories/%E5%87%BA%E5%BA%93/">出库</a>
+                    
+                </span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5"><span class="toc-text">5 发货通知</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">5.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E8%AF%B7%E6%B1%82URL%E4%B8%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">5.2 请求URL与方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">5.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">5.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-%E4%B8%8B%E5%8F%91%E5%87%BA%E5%BA%93%E8%AE%A2%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">5.5 下发出库订单示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">5.6 返回示例</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h1 id="5-发货通知"><a href="#5-发货通知" class="headerlink" title="5 发货通知"></a>5 发货通知</h1><h2 id="5-1-接口说明"><a href="#5-1-接口说明" class="headerlink" title="5.1 接口说明"></a>5.1 接口说明</h2><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>功能</strong></td>
+<td align="left">LMS下发发货信息至WMS</td>
+</tr>
+<tr>
+<td align="left"><strong>业务场景</strong></td>
+<td align="left">发货通知下发，包括订单，SKU，数量， 条码</td>
+</tr>
+<tr>
+<td align="left"><strong>数据方向</strong></td>
+<td align="left">LMS -&gt; WMS</td>
+</tr>
+<tr>
+<td align="left"><strong>实时性</strong></td>
+<td align="left">实时</td>
+</tr>
+<tr>
+<td align="left"><strong>备注</strong></td>
+<td align="left">下发订单类型包括销售单，转移单</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+<h2 id="5-2-请求URL与方式"><a href="#5-2-请求URL与方式" class="headerlink" title="5.2 请求URL与方式"></a>5.2 请求URL与方式</h2><p><strong>请求URL</strong>： 需WMS提供支持Soap协议的Web service的WSDL地址</p>
+<p><strong>方式</strong>：POST </p>
+<p><strong>服务提供public 方法名及参数类型</strong>：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">string</span> issueOutboundOrders(<span class="keyword">XML</span> <span class="title">xmlData</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>WCF/Web Service开发技术文档参考如下：</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.codeproject.com/articles/884992/simple-demo-wcf-web-services">Simple Demo WCF Web Services</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.c-sharpcorner.com/UploadFile/00a8b7/web-service/">Web Services in C#</a></p>
+</blockquote>
+<h2 id="5-3-输入参数"><a href="#5-3-输入参数" class="headerlink" title="5.3 输入参数"></a>5.3 输入参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>类型</th>
+<th>示例值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CarrierCode</td>
+<td>装运承运人</td>
+<td>String</td>
+<td>BLAlog</td>
+<td></td>
+</tr>
+<tr>
+<td>FromSiteId</td>
+<td>始发站点</td>
+<td>String</td>
+<td>BL C1 RDC</td>
+<td></td>
+</tr>
+<tr>
+<td>ItemId</td>
+<td>物料编号</td>
+<td>String</td>
+<td>3411987</td>
+<td>SKU</td>
+</tr>
+<tr>
+<td>LiterQty</td>
+<td>升数</td>
+<td>Float</td>
+<td>24</td>
+<td></td>
+</tr>
+<tr>
+<td>LoadDirection</td>
+<td>方向</td>
+<td>Enum</td>
+<td>出站</td>
+<td>出仓  或 入仓</td>
+</tr>
+<tr>
+<td>LoadId</td>
+<td>运单编号</td>
+<td>String</td>
+<td>ALOG-BL20191024SD0001</td>
+<td></td>
+</tr>
+<tr>
+<td>LoadStatus</td>
+<td>运单状态</td>
+<td>Enum</td>
+<td>打开</td>
+<td></td>
+</tr>
+<tr>
+<td>ConfirmedDateTime</td>
+<td>预约确认时间</td>
+<td>DateTime</td>
+<td>10/24/2021 03:00:00 am</td>
+<td></td>
+</tr>
+<tr>
+<td>LocationEnd</td>
+<td>Shipto</td>
+<td>String</td>
+<td>12161101</td>
+<td>目的信息：客户或者仓库</td>
+</tr>
+<tr>
+<td>LocationStart</td>
+<td>始发地</td>
+<td>String</td>
+<td>CNCS2436</td>
+<td>始发仓库信息</td>
+</tr>
+<tr>
+<td>OrderId</td>
+<td>订单编号</td>
+<td>String</td>
+<td>54316242</td>
+<td></td>
+</tr>
+<tr>
+<td>Qty</td>
+<td>发货数量</td>
+<td>Int</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>TMSModeCode</td>
+<td>运输方式</td>
+<td>String</td>
+<td>CA1</td>
+<td></td>
+</tr>
+<tr>
+<td>InventGHS</td>
+<td>GHS</td>
+<td>Boolean</td>
+<td>N</td>
+<td>Y  or N</td>
+</tr>
+<tr>
+<td>InventThermal</td>
+<td>保温品</td>
+<td>Boolean</td>
+<td>N</td>
+<td>Y or N</td>
+</tr>
+<tr>
+<td>InventDangerous</td>
+<td>危险品</td>
+<td>Enum</td>
+<td>DG9</td>
+<td>N,  DG9,DG3</td>
+</tr>
+<tr>
+<td>ShippingInstruction</td>
+<td>装运指示</td>
+<td>String</td>
+<td>急单</td>
+<td></td>
+</tr>
+<tr>
+<td>ShippingInstructionRemark</td>
+<td>装运指示备注</td>
+<td>String</td>
+<td>客户要求非工作日送货</td>
+<td></td>
+</tr>
+<tr>
+<td>ToSiteId</td>
+<td>目标站点</td>
+<td>String</td>
+<td>BL C1 RDC</td>
+<td></td>
+</tr>
+<tr>
+<td>UOM</td>
+<td>单位</td>
+<td>String</td>
+<td>CARTON</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="5-4-输出参数"><a href="#5-4-输出参数" class="headerlink" title="5.4 输出参数"></a>5.4 输出参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StatusCode</td>
+<td>Y： 成功  N：失败</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Message</td>
+<td>失败后的提示信息，具体类型需要根据实际情况沟通</td>
+<td>例如：已经启运无法变更</td>
+</tr>
+</tbody></table>
+<h2 id="5-5-下发出库订单示例"><a href="#5-5-下发出库订单示例" class="headerlink" title="5.5 下发出库订单示例"></a>5.5 下发出库订单示例</h2><p>数据源：</p>
+<table>
+<thead>
+<tr>
+<th>运单号</th>
+<th>JDE订单编号</th>
+<th>物料编号</th>
+<th>数量</th>
+<th>升数</th>
+<th>始发地</th>
+<th>Ship To</th>
+<th>方式</th>
+<th>始发站点</th>
+<th>单位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316534</td>
+<td>3423504</td>
+<td>10.00</td>
+<td>120.00</td>
+<td>CNCS2436</td>
+<td>20033184</td>
+<td>CA1</td>
+<td>BL C1 RDC</td>
+<td>CARTON</td>
+</tr>
+<tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316361</td>
+<td>3408321</td>
+<td>7.00</td>
+<td>1,347.98</td>
+<td>CNCS2436</td>
+<td>20057163</td>
+<td>CB1</td>
+<td>BL C1 RDC</td>
+<td>DRUM</td>
+</tr>
+<tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316361</td>
+<td>3379971</td>
+<td>4.00</td>
+<td>800.00</td>
+<td>CNCS2436</td>
+<td>20057163</td>
+<td>CB1</td>
+<td>BL C1 RDC</td>
+<td>DRUM</td>
+</tr>
+<tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316361</td>
+<td>3409276</td>
+<td>4.00</td>
+<td>806.22</td>
+<td>CNCS2436</td>
+<td>20057163</td>
+<td>CB1</td>
+<td>BL C1 RDC</td>
+<td>DRUM</td>
+</tr>
+<tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316242</td>
+<td>3411987</td>
+<td>2.00</td>
+<td>24.00</td>
+<td>CNCS2436</td>
+<td>12161101</td>
+<td>CA1</td>
+<td>BL C1 RDC</td>
+<td>CARTON</td>
+</tr>
+<tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316242</td>
+<td>3380353</td>
+<td>1.00</td>
+<td>24.00</td>
+<td>CNCS2436</td>
+<td>12161101</td>
+<td>CA1</td>
+<td>BL C1 RDC</td>
+<td>CARTON</td>
+</tr>
+<tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316242</td>
+<td>3411988</td>
+<td>1.00</td>
+<td>24.00</td>
+<td>CNCS2436</td>
+<td>12161101</td>
+<td>CA1</td>
+<td>BL C1 RDC</td>
+<td>CARTON</td>
+</tr>
+<tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316242</td>
+<td>3383840</td>
+<td>1.00</td>
+<td>24.00</td>
+<td>CNCS2436</td>
+<td>12161101</td>
+<td>CA1</td>
+<td>BL C1 RDC</td>
+<td>CARTON</td>
+</tr>
+<tr>
+<td>ALOG-BL20191024SD0001</td>
+<td>54316559</td>
+<td>3388858</td>
+<td>5.00</td>
+<td>60.00</td>
+<td>CNCS2436</td>
+<td>20049823</td>
+<td>CA1</td>
+<td>BL C1 RDC</td>
+<td>CARTON</td>
+</tr>
+</tbody></table>
+<p>下发的XML文件按<strong>运单</strong>（LoadId）+ <strong>订单</strong>（OrderId) + <strong>SKU</strong> (ItemId) 组合</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Records</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Record</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadId</span>&gt;</span>ALOG-BL20191024SD0001<span class="tag">&lt;/<span class="name">LoadId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">OrderId</span>&gt;</span>54316242<span class="tag">&lt;/<span class="name">OrderId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadStatus</span>&gt;</span>打开<span class="tag">&lt;/<span class="name">LoadStatus</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadDirection</span>&gt;</span>出站<span class="tag">&lt;/<span class="name">LoadDirection</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationConfirmDateTime</span>&gt;</span>10/24/2019 03:00:00 am<span class="tag">&lt;/<span class="name">LocationConfirmDateTime</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">FromSiteId</span>&gt;</span>BL C1 RDC<span class="tag">&lt;/<span class="name">FromSiteId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationStart</span>&gt;</span>CNCS2436<span class="tag">&lt;/<span class="name">LocationStart</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ToSiteId</span>&gt;</span>BL C1 RDC<span class="tag">&lt;/<span class="name">ToSiteId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationEnd</span>&gt;</span>12161101<span class="tag">&lt;/<span class="name">LocationEnd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">CarrierCode</span>&gt;</span>BLAlog<span class="tag">&lt;/<span class="name">CarrierCode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TMSModeCode</span>&gt;</span>CA1<span class="tag">&lt;/<span class="name">TMSModeCode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Items</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3411987<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>2<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>24<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>CARTON<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span>__<span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3380353<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>1<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>24<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>CARTON<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span>__<span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3411988<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>1<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>24<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>CARTON<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span>__<span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3383840<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>1<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>24<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>CARTON<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span>__<span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>Y<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Items</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Record</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Record</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadId</span>&gt;</span>ALOG-BL20191024SD0001<span class="tag">&lt;/<span class="name">LoadId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">OrderId</span>&gt;</span>54316361<span class="tag">&lt;/<span class="name">OrderId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadStatus</span>&gt;</span>打开<span class="tag">&lt;/<span class="name">LoadStatus</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadDirection</span>&gt;</span>出站<span class="tag">&lt;/<span class="name">LoadDirection</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationConfirmDateTime</span>&gt;</span>10/24/2019 03:00:00 am<span class="tag">&lt;/<span class="name">LocationConfirmDateTime</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">FromSiteId</span>&gt;</span>BL C1 RDC<span class="tag">&lt;/<span class="name">FromSiteId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationStart</span>&gt;</span>CNCS2436<span class="tag">&lt;/<span class="name">LocationStart</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ToSiteId</span>&gt;</span>BL C1 RDC<span class="tag">&lt;/<span class="name">ToSiteId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationEnd</span>&gt;</span>20057163<span class="tag">&lt;/<span class="name">LocationEnd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">CarrierCode</span>&gt;</span>BLAlog<span class="tag">&lt;/<span class="name">CarrierCode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TMSModeCode</span>&gt;</span>CB1<span class="tag">&lt;/<span class="name">TMSModeCode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Items</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3408321<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>7<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>1347<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>DRUM<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>Y<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3379971<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>4<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>800<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>DRUM<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3409276<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>4<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>806<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>DRUM<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Items</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Record</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Record</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadId</span>&gt;</span>ALOG-BL20191024SD0001<span class="tag">&lt;/<span class="name">LoadId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">OrderId</span>&gt;</span>54316534<span class="tag">&lt;/<span class="name">OrderId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadStatus</span>&gt;</span>打开<span class="tag">&lt;/<span class="name">LoadStatus</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadDirection</span>&gt;</span>出站<span class="tag">&lt;/<span class="name">LoadDirection</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationConfirmDateTime</span>&gt;</span>10/24/2019 03:00:00 am<span class="tag">&lt;/<span class="name">LocationConfirmDateTime</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">FromSiteId</span>&gt;</span>BL C1 RDC<span class="tag">&lt;/<span class="name">FromSiteId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationStart</span>&gt;</span>CNCS2436<span class="tag">&lt;/<span class="name">LocationStart</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ToSiteId</span>&gt;</span>BL C1 RDC<span class="tag">&lt;/<span class="name">ToSiteId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationEnd</span>&gt;</span>20033184<span class="tag">&lt;/<span class="name">LocationEnd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">CarrierCode</span>&gt;</span>BLAlog<span class="tag">&lt;/<span class="name">CarrierCode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TMSModeCode</span>&gt;</span>CA1<span class="tag">&lt;/<span class="name">TMSModeCode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Items</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3423504<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>10<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>120<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>CARTON<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span>BO4513114481<span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Items</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Record</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Record</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadId</span>&gt;</span>ALOG-BL20191024SD0001<span class="tag">&lt;/<span class="name">LoadId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">OrderId</span>&gt;</span>54316559<span class="tag">&lt;/<span class="name">OrderId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadStatus</span>&gt;</span>打开<span class="tag">&lt;/<span class="name">LoadStatus</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LoadDirection</span>&gt;</span>出站<span class="tag">&lt;/<span class="name">LoadDirection</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationConfirmDateTime</span>&gt;</span>10/24/2019 03:00:00 am<span class="tag">&lt;/<span class="name">LocationConfirmDateTime</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">FromSiteId</span>&gt;</span>BL C1 RDC<span class="tag">&lt;/<span class="name">FromSiteId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationStart</span>&gt;</span>CNCS2436<span class="tag">&lt;/<span class="name">LocationStart</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ToSiteId</span>&gt;</span>BL C1 RDC<span class="tag">&lt;/<span class="name">ToSiteId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">LocationEnd</span>&gt;</span>20049823<span class="tag">&lt;/<span class="name">LocationEnd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">CarrierCode</span>&gt;</span>BLAlog<span class="tag">&lt;/<span class="name">CarrierCode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TMSModeCode</span>&gt;</span>CA1<span class="tag">&lt;/<span class="name">TMSModeCode</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Items</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ItemId</span>&gt;</span>3388858<span class="tag">&lt;/<span class="name">ItemId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Qty</span>&gt;</span>5<span class="tag">&lt;/<span class="name">Qty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">LiterQty</span>&gt;</span>60<span class="tag">&lt;/<span class="name">LiterQty</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">UOM</span>&gt;</span>CARTON<span class="tag">&lt;/<span class="name">UOM</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstruction</span>&gt;</span>9915416<span class="tag">&lt;/<span class="name">ShippingInstruction</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ShippingInstructionRemark</span>&gt;</span><span class="tag">&lt;/<span class="name">ShippingInstructionRemark</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventGHS</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventGHS</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventThermal</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventThermal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">InventDangerous</span>&gt;</span>N<span class="tag">&lt;/<span class="name">InventDangerous</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Items</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Records</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-6-返回示例"><a href="#5-6-返回示例" class="headerlink" title="5.6 返回示例"></a>5.6 返回示例</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>取值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>运单下发成功</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>运单下发失败</td>
+<td>N， 和原因</td>
+</tr>
+</tbody></table>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/wms/tags/5%E5%8F%91%E8%B4%A7%E9%80%9A%E7%9F%A5/" title="5发货通知">5发货通知</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/wms/2020/12/07/OutWarehouseInformation/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">仓库出仓的订单及条码信息</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
+        
+        
+            <a class="next" href="/wms/2020/12/07/ReceiptCompletedWaybills/">
+                <span class="nav-default">仓库收货完成</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2020
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">LMS</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/wms/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>
