@@ -102,6 +102,61 @@
     
         <article class="post-abstract">
             <div class="post-title">
+                <h2><a class="post-title-link" href="/wms/2020/12/11/token/">如何获取LMS服务的Token</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-11</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wms/categories/%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/">帮助文档</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="如何获取LMS服务的Token"><a href="#如何获取LMS服务的Token" class="headerlink" title="如何获取LMS服务的Token"></a>如何获取LMS服务的Token</h1><h2 id="1-安装Postman"><a href="#1-安装Postman" class="headerlink" title="1. 安装Postman"></a>1. 安装Postman</h2><p><a target="_blank" rel="noopener" href="https://www.postman.com/downloads/">Postman安装地址</a></p>
+<h2 id="2-禁用-SSL-证书验证"><a href="#2-禁用-SSL-证书验证" class="headerlink" title="2 . 禁用 SSL 证书验证"></a>2 . 禁用 <strong>SSL 证书验证</strong></h2><p>在“文件”&gt;“设置”（“常规” 选项卡）中，禁用“SSL 证书验证”。</p>
+<h2 id="3-创建Http-Get请求"><a href="#3-创建Http-Get请求" class="headerlink" title="3. 创建Http Get请求"></a>3. 创建Http Get请求</h2><p>a. 创建新请求。</p>
+<p>b. 将 HTTP 方法设置为“GET”。</p>
+<p>c. 将请求 URI 设置为  <a target="_blank" rel="noopener" href="https://139.219.15.177/BPServiceHub/token">https://139.219.15.177/BPServiceHub/token</a></p>
+<p>​    URL： <a target="_blank" rel="noopener" href="https://139.219.15.177/BPServiceHub/token">https://139.219.15.177/BPServiceHub/token</a></p>
+<p>d. 输入参数</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>username</td>
+<td>用户的域名和名字组合: 域名\用户名</td>
+<td>cflogistics\dev1</td>
+</tr>
+<tr>
+<td>password</td>
+<td>用户的密码</td>
+<td>xxxxx</td>
+</tr>
+</tbody></table>
+<p>e. 点击Send</p>
+<p>f. 输出token</p>
+<p><strong>验证通过：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;Token&quot;: &quot;H0zvDTfSzopQ4eWgc7yKJfofd0IzTClu0llne4m7cR0&#x3D;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>验证失败</strong></p>
+<p>登录没有成功</p>
+<p><img src="../Images/token/image-20201211122046563.png" alt="image-20201211122046563"></p>
+
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
                 <h2><a class="post-title-link" href="/wms/2020/12/07/SDSAndQACMasterData/">MSDS 与 QAC文件主数据同步</a></h2>
             </div>
             <div class="post-meta">
@@ -562,64 +617,15 @@
             </div>
         </article>
     
-        <article class="post-abstract">
-            <div class="post-title">
-                <h2><a class="post-title-link" href="/wms/2020/12/07/InboundOrderIssued/">入库通知下发</a></h2>
-            </div>
-            <div class="post-meta">
-                <span class="post-time">2020-12-07</span>
-                
-                <span class="post-category">
-                    
-                    <a class="category" href="/wms/categories/%E5%85%A5%E5%BA%93/">入库</a>
-                    
-                </span>
-                
-            </div>
-            <div class="post-content">
-                
-                    <h1 id="3-入库通知下发"><a href="#3-入库通知下发" class="headerlink" title="3 入库通知下发"></a>3 入库通知下发</h1><h2 id="3-1-接口说明"><a href="#3-1-接口说明" class="headerlink" title="3.1 接口说明"></a>3.1 接口说明</h2><table>
-<thead>
-<tr>
-<th align="left">项目</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>功能</strong></td>
-<td align="left">LMS下发入库信息至WMS</td>
-</tr>
-<tr>
-<td align="left"><strong>业务场景</strong></td>
-<td align="left">入库通知下发，包括订单，SKU，数量， 条码</td>
-</tr>
-<tr>
-<td align="left"><strong>数据方向</strong></td>
-<td align="left">LMS -&gt; WMS</td>
-</tr>
-<tr>
-<td align="left"><strong>实时性</strong></td>
-<td align="left">实时</td>
-</tr>
-<tr>
-<td align="left"><strong>备注</strong></td>
-<td align="left">下发订单类型包括采购单，转移单，销售退单</td>
-</tr>
-</tbody></table>
-                    <div class="read-more">
-                        <a href="/wms/2020/12/07/InboundOrderIssued/" class="read-more-link">
-                            阅读全文
-                            <i class="iconfont icon-readmore"></i>
-                        </a>
-                    </div>
-                
-            </div>
-        </article>
-    
 </div>
 <div class="paginator">
     
         
+        
+        <a class="next" href="/wms/page/2/">
+            下一页
+            <i class="iconfont icon-next"></i>
+        </a>
         
     
 </div>
