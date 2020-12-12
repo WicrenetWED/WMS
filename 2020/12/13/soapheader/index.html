@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>LMS &amp; WMS 接口开发文档</title>
+    
+<link rel="stylesheet" href="/wms/css/style.css">
+
+    
+<link rel="stylesheet" href="/wms/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/wms/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/wms/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+            <a href="/wms/tags" class="header-nav-link">
+                标签
+            </a>
+            
+
+            
+
+
+            
+                <a href="/wms/status/" class="header-nav-link">
+                    开发状态
+                </a>
+            
+            
+                <a href="/wms/issues/" class="header-nav-link">
+                    问题列表
+                </a>
+            
+            
+                <a href="/wms/changes/" class="header-nav-link">
+                    变更日志
+                </a>
+            
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/wms/" class="mobile-nav-title-link">LMS接口开发文档</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/wms/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/wms/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/wms/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/status/" class="mobile-nav-link">开发状态</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/issues/" class="mobile-nav-link">问题列表</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">如何用定制化的Soap header授权Web Service的访问</h2>
+            <div class="post-meta">
+                <span class="post-time">2020-12-13 01:10:25</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wms/categories/%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/">帮助文档</a>
+                    
+                </span>
+                
+               
+                
+
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8%E5%AE%9A%E5%88%B6%E5%8C%96%E7%9A%84SOAP-Header%E6%8E%88%E6%9D%83Web-Service%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-text">如何用定制化的SOAP Header授权Web Service的访问</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%83%8C%E6%99%AF"><span class="toc-text">1 背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%A4%BA%E4%BE%8B"><span class="toc-text">2 示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%9A%E5%88%B6%E4%B8%80%E4%B8%AASoap-Header-%E7%BB%A7%E6%89%BFSoapHeader"><span class="toc-text">2.1 定制一个Soap Header 继承SoapHeader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%9C%A8%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%BA%94%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84Soap-header"><span class="toc-text">2.2  在服务中应用自定义的Soap header</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%8F%82%E8%80%83"><span class="toc-text">2.3 参考</span></a></li></ol></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h1 id="如何用定制化的SOAP-Header授权Web-Service的访问"><a href="#如何用定制化的SOAP-Header授权Web-Service的访问" class="headerlink" title="如何用定制化的SOAP Header授权Web Service的访问"></a>如何用定制化的SOAP Header授权Web Service的访问</h1><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h2><p>目前AX不能很好支持 Basic  Authorization授权方式，建议用SOAP Header方式来验证用户是否与权限访问。</p>
+<p>并且在集成过程中发现服务中，缺少Request。</p>
+<img src="https://wicrenetwed.github.io/wms/2020/12/13/soapheader/image-20201213012714019.png" alt="image-20201213012714019" style="zoom:80%;">
+
+<p>期望服务是Request和Response对匹配的：</p>
+<img src="https://wicrenetwed.github.io/wms/2020/12/13/soapheader/image-20201213011200690.png" alt="image-20201213011200690" style="zoom:80%;">
+
+<h2 id="2-示例"><a href="#2-示例" class="headerlink" title="2 示例"></a>2 示例</h2><h3 id="2-1-定制一个Soap-Header-继承SoapHeader"><a href="#2-1-定制一个Soap-Header-继承SoapHeader" class="headerlink" title="2.1 定制一个Soap Header 继承SoapHeader"></a>2.1 定制一个Soap Header 继承SoapHeader</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CustomHeader</span>:<span class="title">SoapHeader</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">string</span> UserName &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">string</span> Password &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Verfiy</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-在服务中应用自定义的Soap-header"><a href="#2-2-在服务中应用自定义的Soap-header" class="headerlink" title="2.2  在服务中应用自定义的Soap header"></a>2.2  在服务中应用自定义的Soap header</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> CustomHeader: MyHeader &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</span><br><span class="line"></span><br><span class="line">[<span class="meta">WebMethod(Description=<span class="meta-string">&quot;Test the interface&quot;</span>)</span>]</span><br><span class="line">[<span class="meta">SoapHeader(<span class="meta-string">&quot;MyHeader&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">TestOK</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (MyHeader == <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    	<span class="keyword">throw</span> <span class="keyword">new</span> SoapException(<span class="string">&quot;Please setting service header&quot;</span>, SoapException.ClientFaultCode);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ServiceHeader.Verify(<span class="keyword">this</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;OK&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-参考"><a href="#2-3-参考" class="headerlink" title="2.3 参考"></a>2.3 参考</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheaderattribute?view=netframework-4.8">微软官方</a></p>
+<blockquote>
+<p>The basic steps to receiving and processing a SOAP header are:</p>
+<ol>
+<li>Create a class deriving from <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheader?view=netframework-4.8">SoapHeader</a> representing the data passed in the SOAP header.</li>
+<li>Add a member to the XML Web service class or XML Web service client proxy class of the type created in step 1.</li>
+<li>Apply a <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheaderattribute?view=netframework-4.8">SoapHeaderAttribute</a> to the XML Web service method or the corresponding method in the proxy class, specifying the member created in step 2 in the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheaderattribute.membername?view=netframework-4.8">MemberName</a> property.</li>
+<li>Within the XML Web service method or XML Web service client code, access the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheaderattribute.membername?view=netframework-4.8">MemberName</a> property to process the data sent in the SOAP header.</li>
+</ol>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.codeproject.com/articles/27365/authenticate-net-web-service-with-custom-soap-head">How to authenticate .NET web service with custom SOAP Header</a></p>
+<blockquote>
+<p>Using this method we simply add a required SOAP header to our web services calls.</p>
+<p>We embed the SOAP header into our message and validate its contents on the server.</p>
+<p>If the SOAP header validation done successfully, the web server sends the web service response to the consumer.</p>
+</blockquote>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/wms/tags/Soap-Header/" title="Soap Header">Soap Header</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+        
+            <a class="next" href="/wms/2020/12/11/token/">
+                <span class="nav-default">如何获取LMS Web API的令牌（Token）</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2020
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">LMS</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/wms/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>
