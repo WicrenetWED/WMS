@@ -116,40 +116,13 @@
             </div>
             <div class="post-content">
                 
-                    <h1 id="如何用定制化的SOAP-Header授权Web-Service的访问"><a href="#如何用定制化的SOAP-Header授权Web-Service的访问" class="headerlink" title="如何用定制化的SOAP Header授权Web Service的访问"></a>如何用定制化的SOAP Header授权Web Service的访问</h1><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h2><p>目前AX不能很好支持 <strong>Basic  Authorization授权及其他授权方式</strong>，建议用SOAP Header方式来验证用户是否与权限访问。</p>
-<p>并且在集成过程中发现服务中，缺少Request。</p>
-<img src="https://wicrenetwed.github.io/wms/2020/12/13/soapheader/image-20201213012714019.png" alt="image-20201213012714019" style="zoom:80%;">
-
-<p>期望服务是Request和Response对匹配的：</p>
-<img src="https://wicrenetwed.github.io/wms/2020/12/13/soapheader/image-20201213011200690.png" alt="image-20201213011200690" style="zoom:80%;">
-
-<h2 id="2-示例"><a href="#2-示例" class="headerlink" title="2 示例"></a>2 示例</h2><h3 id="2-1-定制一个Soap-Header-继承SoapHeader"><a href="#2-1-定制一个Soap-Header-继承SoapHeader" class="headerlink" title="2.1 定制一个Soap Header 继承SoapHeader"></a>2.1 定制一个Soap Header 继承SoapHeader</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CustomHeader</span>:<span class="title">SoapHeader</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">string</span> UserName &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">string</span> Password &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Verfiy</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-在服务中应用自定义的Soap-header"><a href="#2-2-在服务中应用自定义的Soap-header" class="headerlink" title="2.2  在服务中应用自定义的Soap header"></a>2.2  在服务中应用自定义的Soap header</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> CustomHeader: MyHeader &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</span><br><span class="line"></span><br><span class="line">[<span class="meta">WebMethod(Description=<span class="meta-string">&quot;Test the interface&quot;</span>)</span>]</span><br><span class="line">[<span class="meta">SoapHeader(<span class="meta-string">&quot;MyHeader&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">TestOK</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (MyHeader == <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    	<span class="keyword">throw</span> <span class="keyword">new</span> SoapException(<span class="string">&quot;Please setting service header&quot;</span>, SoapException.ClientFaultCode);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ServiceHeader.Verify(<span class="keyword">this</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;OK&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-3-参考"><a href="#2-3-参考" class="headerlink" title="2.3 参考"></a>2.3 参考</h3><ul>
-<li><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheaderattribute?view=netframework-4.8">微软官方</a></p>
-<blockquote>
-<p>The basic steps to receiving and processing a SOAP header are:</p>
-<ol>
-<li>Create a class deriving from <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheader?view=netframework-4.8">SoapHeader</a> representing the data passed in the SOAP header.</li>
-<li>Add a member to the XML Web service class or XML Web service client proxy class of the type created in step 1.</li>
-<li>Apply a <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheaderattribute?view=netframework-4.8">SoapHeaderAttribute</a> to the XML Web service method or the corresponding method in the proxy class, specifying the member created in step 2 in the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheaderattribute.membername?view=netframework-4.8">MemberName</a> property.</li>
-<li>Within the XML Web service method or XML Web service client code, access the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.web.services.protocols.soapheaderattribute.membername?view=netframework-4.8">MemberName</a> property to process the data sent in the SOAP header.</li>
-</ol>
-</blockquote>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.codeproject.com/articles/27365/authenticate-net-web-service-with-custom-soap-head">How to authenticate .NET web service with custom SOAP Header</a></p>
-<blockquote>
-<p>Using this method we simply add a required SOAP header to our web services calls.</p>
-<p>We embed the SOAP header into our message and validate its contents on the server.</p>
-<p>If the SOAP header validation done successfully, the web server sends the web service response to the consumer.</p>
-</blockquote>
-</li>
-</ul>
-
+                    <h1 id="如何用定制化的SOAP-Header授权Web-Service的访问"><a href="#如何用定制化的SOAP-Header授权Web-Service的访问" class="headerlink" title="如何用定制化的SOAP Header授权Web Service的访问"></a>如何用定制化的SOAP Header授权Web Service的访问</h1><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h2><p>在集成第三方服务时，发现AX不能很好支持 <strong>Basic  Authorization授权及其他授权方式</strong>，为了实现授权访问，建议用SOAP Header方式来验证用户是否可以访问对应的服务。</p>
+                    <div class="read-more">
+                        <a href="/wms/2020/12/13/soapheader/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
                 
             </div>
         </article>
@@ -356,21 +329,21 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/wms/2020/12/07/OutWarehouseInformation/">仓库出仓的订单及条码信息</a></h2>
+                <h2><a class="post-title-link" href="/wms/2020/12/07/InventCountJournal/">仓库盘点后的反馈结果</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2020-12-07</span>
                 
                 <span class="post-category">
                     
-                    <a class="category" href="/wms/categories/%E5%87%BA%E5%BA%93/">出库</a>
+                    <a class="category" href="/wms/categories/%E7%9B%98%E7%82%B9/">盘点</a>
                     
                 </span>
                 
             </div>
             <div class="post-content">
                 
-                    <h1 id="6-确认出仓"><a href="#6-确认出仓" class="headerlink" title="6 确认出仓"></a>6 确认出仓</h1><h2 id="6-1-接口说明"><a href="#6-1-接口说明" class="headerlink" title="6.1 接口说明"></a>6.1 接口说明</h2><table>
+                    <h1 id="7-反馈盘点结果"><a href="#7-反馈盘点结果" class="headerlink" title="7 反馈盘点结果"></a>7 反馈盘点结果</h1><h2 id="7-1-接口说明"><a href="#7-1-接口说明" class="headerlink" title="7.1 接口说明"></a>7.1 接口说明</h2><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -378,28 +351,24 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>功能</strong></td>
-<td>LMS接收已出仓订单信息</td>
+<td>功能</td>
+<td>LMS接收盘点数据</td>
 </tr>
 <tr>
-<td><strong>业务场景</strong></td>
-<td>确认出仓条码，包括订单，SKU，条形码</td>
+<td>数据方向</td>
+<td>WMS -&gt; LMS</td>
 </tr>
 <tr>
-<td><strong>数据方向</strong></td>
-<td>WMS -&gt;LMS</td>
-</tr>
-<tr>
-<td><strong>实时性</strong></td>
+<td>实时性</td>
 <td>实时</td>
 </tr>
 <tr>
-<td><strong>备注</strong></td>
-<td></td>
+<td>说明</td>
+<td>LMS接收盘点数据，做数据校验 如果系统已经存在数据，则会更新盘点数据 （更新主键：locationid+itemid+transdate）</td>
 </tr>
 </tbody></table>
                     <div class="read-more">
-                        <a href="/wms/2020/12/07/OutWarehouseInformation/" class="read-more-link">
+                        <a href="/wms/2020/12/07/InventCountJournal/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
@@ -464,21 +433,21 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/wms/2020/12/07/InventCountJournal/">仓库盘点后的反馈结果</a></h2>
+                <h2><a class="post-title-link" href="/wms/2020/12/07/OutWarehouseInformation/">仓库出仓的订单及条码信息</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2020-12-07</span>
                 
                 <span class="post-category">
                     
-                    <a class="category" href="/wms/categories/%E7%9B%98%E7%82%B9/">盘点</a>
+                    <a class="category" href="/wms/categories/%E5%87%BA%E5%BA%93/">出库</a>
                     
                 </span>
                 
             </div>
             <div class="post-content">
                 
-                    <h1 id="7-反馈盘点结果"><a href="#7-反馈盘点结果" class="headerlink" title="7 反馈盘点结果"></a>7 反馈盘点结果</h1><h2 id="7-1-接口说明"><a href="#7-1-接口说明" class="headerlink" title="7.1 接口说明"></a>7.1 接口说明</h2><table>
+                    <h1 id="6-确认出仓"><a href="#6-确认出仓" class="headerlink" title="6 确认出仓"></a>6 确认出仓</h1><h2 id="6-1-接口说明"><a href="#6-1-接口说明" class="headerlink" title="6.1 接口说明"></a>6.1 接口说明</h2><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -486,24 +455,28 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>功能</td>
-<td>LMS接收盘点数据</td>
+<td><strong>功能</strong></td>
+<td>LMS接收已出仓订单信息</td>
 </tr>
 <tr>
-<td>数据方向</td>
-<td>WMS -&gt; LMS</td>
+<td><strong>业务场景</strong></td>
+<td>确认出仓条码，包括订单，SKU，条形码</td>
 </tr>
 <tr>
-<td>实时性</td>
+<td><strong>数据方向</strong></td>
+<td>WMS -&gt;LMS</td>
+</tr>
+<tr>
+<td><strong>实时性</strong></td>
 <td>实时</td>
 </tr>
 <tr>
-<td>说明</td>
-<td>LMS接收盘点数据，做数据校验 如果系统已经存在数据，则会更新盘点数据 （更新主键：locationid+itemid+transdate）</td>
+<td><strong>备注</strong></td>
+<td></td>
 </tr>
 </tbody></table>
                     <div class="read-more">
-                        <a href="/wms/2020/12/07/InventCountJournal/" class="read-more-link">
+                        <a href="/wms/2020/12/07/OutWarehouseInformation/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
