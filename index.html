@@ -116,7 +116,7 @@
             </div>
             <div class="post-content">
                 
-                    <h1 id="如何用定制化的SOAP-Header授权Web-Service的访问"><a href="#如何用定制化的SOAP-Header授权Web-Service的访问" class="headerlink" title="如何用定制化的SOAP Header授权Web Service的访问"></a>如何用定制化的SOAP Header授权Web Service的访问</h1><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h2><p>目前AX不能很好支持 Basic  Authorization授权方式，建议用SOAP Header方式来验证用户是否与权限访问。</p>
+                    <h1 id="如何用定制化的SOAP-Header授权Web-Service的访问"><a href="#如何用定制化的SOAP-Header授权Web-Service的访问" class="headerlink" title="如何用定制化的SOAP Header授权Web Service的访问"></a>如何用定制化的SOAP Header授权Web Service的访问</h1><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h2><p>目前AX不能很好支持 <strong>Basic  Authorization授权及其他授权方式</strong>，建议用SOAP Header方式来验证用户是否与权限访问。</p>
 <p>并且在集成过程中发现服务中，缺少Request。</p>
 <img src="https://wicrenetwed.github.io/wms/2020/12/13/soapheader/image-20201213012714019.png" alt="image-20201213012714019" style="zoom:80%;">
 
@@ -256,56 +256,6 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/wms/2020/12/07/FreezeUnfreezeBarcode/">仓库冻结与解冻不良品信息</a></h2>
-            </div>
-            <div class="post-meta">
-                <span class="post-time">2020-12-07</span>
-                
-                <span class="post-category">
-                    
-                    <a class="category" href="/wms/categories/%E4%B8%8D%E8%89%AF%E5%93%81/">不良品</a>
-                    
-                </span>
-                
-            </div>
-            <div class="post-content">
-                
-                    <h1 id="8-amp-9冻结解冻不良品"><a href="#8-amp-9冻结解冻不良品" class="headerlink" title="8&amp;9冻结解冻不良品"></a>8&amp;9冻结解冻不良品</h1><h2 id="8-1-接口说明"><a href="#8-1-接口说明" class="headerlink" title="8.1 接口说明"></a>8.1 接口说明</h2><table>
-<thead>
-<tr>
-<th>项目</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>功能</td>
-<td>冻结条码、解冻不良品条码</td>
-</tr>
-<tr>
-<td>数据方向</td>
-<td>WMS–&gt;LMS</td>
-</tr>
-<tr>
-<td>实时性</td>
-<td>实时</td>
-</tr>
-<tr>
-<td>说明</td>
-<td>冻结时条码状态需为“正常”， 解冻时条码状态需为已冻结或者已完成异常品申报流程</td>
-</tr>
-</tbody></table>
-                    <div class="read-more">
-                        <a href="/wms/2020/12/07/FreezeUnfreezeBarcode/" class="read-more-link">
-                            阅读全文
-                            <i class="iconfont icon-readmore"></i>
-                        </a>
-                    </div>
-                
-            </div>
-        </article>
-    
-        <article class="post-abstract">
-            <div class="post-title">
                 <h2><a class="post-title-link" href="/wms/2020/12/07/CRMMasterdata/">客户需求关系相关信息</a></h2>
             </div>
             <div class="post-meta">
@@ -356,21 +306,21 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/wms/2020/12/07/InventCountJournal/">仓库盘点后的反馈结果</a></h2>
+                <h2><a class="post-title-link" href="/wms/2020/12/07/FreezeUnfreezeBarcode/">仓库冻结与解冻不良品信息</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2020-12-07</span>
                 
                 <span class="post-category">
                     
-                    <a class="category" href="/wms/categories/%E7%9B%98%E7%82%B9/">盘点</a>
+                    <a class="category" href="/wms/categories/%E4%B8%8D%E8%89%AF%E5%93%81/">不良品</a>
                     
                 </span>
                 
             </div>
             <div class="post-content">
                 
-                    <h1 id="7-反馈盘点结果"><a href="#7-反馈盘点结果" class="headerlink" title="7 反馈盘点结果"></a>7 反馈盘点结果</h1><h2 id="7-1-接口说明"><a href="#7-1-接口说明" class="headerlink" title="7.1 接口说明"></a>7.1 接口说明</h2><table>
+                    <h1 id="8-amp-9冻结解冻不良品"><a href="#8-amp-9冻结解冻不良品" class="headerlink" title="8&amp;9冻结解冻不良品"></a>8&amp;9冻结解冻不良品</h1><h2 id="8-1-接口说明"><a href="#8-1-接口说明" class="headerlink" title="8.1 接口说明"></a>8.1 接口说明</h2><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -379,11 +329,11 @@
 </thead>
 <tbody><tr>
 <td>功能</td>
-<td>LMS接收盘点数据</td>
+<td>冻结条码、解冻不良品条码</td>
 </tr>
 <tr>
 <td>数据方向</td>
-<td>WMS -&gt; LMS</td>
+<td>WMS–&gt;LMS</td>
 </tr>
 <tr>
 <td>实时性</td>
@@ -391,11 +341,65 @@
 </tr>
 <tr>
 <td>说明</td>
-<td>LMS接收盘点数据，做数据校验 如果系统已经存在数据，则会更新盘点数据 （更新主键：locationid+itemid+transdate）</td>
+<td>冻结时条码状态需为“正常”， 解冻时条码状态需为已冻结或者已完成异常品申报流程</td>
 </tr>
 </tbody></table>
                     <div class="read-more">
-                        <a href="/wms/2020/12/07/InventCountJournal/" class="read-more-link">
+                        <a href="/wms/2020/12/07/FreezeUnfreezeBarcode/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/wms/2020/12/07/OutWarehouseInformation/">仓库出仓的订单及条码信息</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2020-12-07</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wms/categories/%E5%87%BA%E5%BA%93/">出库</a>
+                    
+                </span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h1 id="6-确认出仓"><a href="#6-确认出仓" class="headerlink" title="6 确认出仓"></a>6 确认出仓</h1><h2 id="6-1-接口说明"><a href="#6-1-接口说明" class="headerlink" title="6.1 接口说明"></a>6.1 接口说明</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>功能</strong></td>
+<td>LMS接收已出仓订单信息</td>
+</tr>
+<tr>
+<td><strong>业务场景</strong></td>
+<td>确认出仓条码，包括订单，SKU，条形码</td>
+</tr>
+<tr>
+<td><strong>数据方向</strong></td>
+<td>WMS -&gt;LMS</td>
+</tr>
+<tr>
+<td><strong>实时性</strong></td>
+<td>实时</td>
+</tr>
+<tr>
+<td><strong>备注</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+                    <div class="read-more">
+                        <a href="/wms/2020/12/07/OutWarehouseInformation/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
@@ -460,21 +464,21 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/wms/2020/12/07/OutWarehouseInformation/">仓库出仓的订单及条码信息</a></h2>
+                <h2><a class="post-title-link" href="/wms/2020/12/07/InventCountJournal/">仓库盘点后的反馈结果</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2020-12-07</span>
                 
                 <span class="post-category">
                     
-                    <a class="category" href="/wms/categories/%E5%87%BA%E5%BA%93/">出库</a>
+                    <a class="category" href="/wms/categories/%E7%9B%98%E7%82%B9/">盘点</a>
                     
                 </span>
                 
             </div>
             <div class="post-content">
                 
-                    <h1 id="6-确认出仓"><a href="#6-确认出仓" class="headerlink" title="6 确认出仓"></a>6 确认出仓</h1><h2 id="6-1-接口说明"><a href="#6-1-接口说明" class="headerlink" title="6.1 接口说明"></a>6.1 接口说明</h2><table>
+                    <h1 id="7-反馈盘点结果"><a href="#7-反馈盘点结果" class="headerlink" title="7 反馈盘点结果"></a>7 反馈盘点结果</h1><h2 id="7-1-接口说明"><a href="#7-1-接口说明" class="headerlink" title="7.1 接口说明"></a>7.1 接口说明</h2><table>
 <thead>
 <tr>
 <th>项目</th>
@@ -482,28 +486,24 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>功能</strong></td>
-<td>LMS接收已出仓订单信息</td>
+<td>功能</td>
+<td>LMS接收盘点数据</td>
 </tr>
 <tr>
-<td><strong>业务场景</strong></td>
-<td>确认出仓条码，包括订单，SKU，条形码</td>
+<td>数据方向</td>
+<td>WMS -&gt; LMS</td>
 </tr>
 <tr>
-<td><strong>数据方向</strong></td>
-<td>WMS -&gt;LMS</td>
-</tr>
-<tr>
-<td><strong>实时性</strong></td>
+<td>实时性</td>
 <td>实时</td>
 </tr>
 <tr>
-<td><strong>备注</strong></td>
-<td></td>
+<td>说明</td>
+<td>LMS接收盘点数据，做数据校验 如果系统已经存在数据，则会更新盘点数据 （更新主键：locationid+itemid+transdate）</td>
 </tr>
 </tbody></table>
                     <div class="read-more">
-                        <a href="/wms/2020/12/07/OutWarehouseInformation/" class="read-more-link">
+                        <a href="/wms/2020/12/07/InventCountJournal/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
