@@ -119,6 +119,13 @@
 <blockquote>
 <p>时间格式为：yyyy-MM-ddTHH:mm:ss    </p>
 </blockquote>
+<h1 id="2020-12-28-日志"><a href="#2020-12-28-日志" class="headerlink" title="2020-12-28 日志"></a>2020-12-28 日志</h1><h3 id="MSDS-amp-QAC-文件接口"><a href="#MSDS-amp-QAC-文件接口" class="headerlink" title="MSDS &amp; QAC 文件接口"></a>MSDS &amp; QAC 文件接口</h3><ol>
+<li><p>由于文件的特殊性及其大小限制，因此新增LMS直接推送信息至WMS的方案，如果WMS这边计划采用这个方案，需要提供支持SOAP协议的接口地址，具体开发规范详见文档。</p>
+</li>
+<li><p>WMS在拉取文件时，需要验证本地版本是否最新，为了支持该功能，因此新增字段IsVersion来标记是否仅仅检查版本信息。</p>
+<p>该字段目前有默认值false, 开发这边无需调整， 只是在检查版本时设置为true.</p>
+</li>
+</ol>
 
 </div>
     </div>
