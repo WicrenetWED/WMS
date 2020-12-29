@@ -98,37 +98,178 @@
 </header>
 <div class="main">
     <div class="content-inner">
-        <div class="about">
-    <h1 id="2020-12-10-变更日志"><a href="#2020-12-10-变更日志" class="headerlink" title="2020-12-10 变更日志"></a>2020-12-10 变更日志</h1><h3 id="1-MSDS-amp-QAC接口"><a href="#1-MSDS-amp-QAC接口" class="headerlink" title="1 MSDS &amp; QAC接口"></a>1 MSDS &amp; QAC接口</h3><p>1.1 SDS 变为 MSDS<br>1.2 Type类型从int 变为String，且取值为 MSDS，QAC， ALL（表示同时获得MSDS和QAC文件）<br>1.3 请求URL变更过为api/MSDSAndQACFileTransfer<br>1.4 请求方式为POST<br>1.5 变更请求示例</p>
-<h3 id="2-Disable-SSL认证"><a href="#2-Disable-SSL认证" class="headerlink" title="2 Disable SSL认证"></a>2 Disable SSL认证</h3><p>变更https 至 http</p>
-<h3 id="3-入库与出库订单下发"><a href="#3-入库与出库订单下发" class="headerlink" title="3 入库与出库订单下发"></a>3 入库与出库订单下发</h3><p>新增字段： LoadType  运单类型  String  </p>
-<p>取值范围：采购订单 ， 销售订单（数量为负数的退单），转移单接收，转移单装运 </p>
-<h1 id="2020-12-24-变更日志"><a href="#2020-12-24-变更日志" class="headerlink" title="2020-12-24 变更日志"></a>2020-12-24 变更日志</h1><h3 id="1-MSDS-amp-QAC-文件"><a href="#1-MSDS-amp-QAC-文件" class="headerlink" title="1 MSDS &amp; QAC 文件"></a>1 MSDS &amp; QAC 文件</h3><p>修改示例中文件名信息包含扩展名</p>
-<p> “fileName”: “3428912-23099156-1.pdf”</p>
-<h3 id="2-确认出仓"><a href="#2-确认出仓" class="headerlink" title="2 确认出仓"></a>2 确认出仓</h3><ul>
-<li><p>出仓时间允许为<strong>空</strong>，以LMS接收过账时间为准， 如果提供时间请按示例格式：2020-12-05T14:45:44  </p>
-<blockquote>
-<p>时间格式为：yyyy-MM-ddTHH:mm:ss    </p>
-</blockquote>
-</li>
-<li><p>托盘编号 和 出库地标编号允许为<strong>空</strong></p>
-</li>
-</ul>
-<h3 id="3-收货完成"><a href="#3-收货完成" class="headerlink" title="3 收货完成"></a>3 收货完成</h3><p>ArrivedDatetime 到货时间 和 SignInDatetime 签收完成时间， 允许为<strong>空</strong>，以LMS接收过账时间为准</p>
-<p>如果提供时间请按示例格式：2020-12-05T14:45:44  </p>
-<blockquote>
-<p>时间格式为：yyyy-MM-ddTHH:mm:ss    </p>
-</blockquote>
-<h1 id="2020-12-28-日志"><a href="#2020-12-28-日志" class="headerlink" title="2020-12-28 日志"></a>2020-12-28 日志</h1><h3 id="MSDS-amp-QAC-文件接口"><a href="#MSDS-amp-QAC-文件接口" class="headerlink" title="MSDS &amp; QAC 文件接口"></a>MSDS &amp; QAC 文件接口</h3><ol>
-<li><p>由于文件的特殊性及其大小限制，因此新增LMS直接推送信息至WMS的方案，如果WMS这边计划采用这个方案，需要提供支持SOAP协议的接口地址，具体开发规范详见文档。</p>
-</li>
-<li><p>WMS在拉取文件时，需要验证本地版本是否最新，为了支持该功能，因此新增字段IsVersion来标记是否仅仅检查版本信息。</p>
-<p>该字段目前有默认值false, 开发这边无需调整， 只是在检查版本时设置为true.</p>
-</li>
-</ol>
-<h1 id="2020-12-29-日志"><a href="#2020-12-29-日志" class="headerlink" title="2020-12-29 日志"></a>2020-12-29 日志</h1><h3 id="反馈盘点结果"><a href="#反馈盘点结果" class="headerlink" title="反馈盘点结果"></a>反馈盘点结果</h3><p>移除托盘字段 因盘点请虚拟仓+SKU+批次的数量汇总即可， 无需提供托盘信息</p>
+        <section class="archive">
+    
+    <div class="archive-title tag">
+        <h2 class="archive-name">FAQ</h2>
+    </div>
+    
 
-</div>
+    
+    
+    
+        
+            
+            
+                
+                    
+                
+            
+
+            
+                <div class="archive-post">
+                    <span class="archive-post-time">
+                    2020-12-29
+                    </span>
+                    <span class="archive-post-title">
+                        <a class="archive-post-link" href="/wms/2020/12/29/faq/">常见问题与解答</a>
+                    </span>
+                </div>
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+        
+            
+            
+                
+            
+
+            
+        
+
+    
+</section>
     </div>
 </div>
 <footer class="footer-social">
