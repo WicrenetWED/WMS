@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>LMS &amp; WMS 接口开发文档</title>
+    
+<link rel="stylesheet" href="/wms/css/style.css">
+
+    
+<link rel="stylesheet" href="/wms/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/wms/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/wms/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+            <a href="/wms/tags" class="header-nav-link">
+                标签
+            </a>
+            
+
+            
+
+
+            
+                <a href="/wms/status/" class="header-nav-link">
+                    开发状态
+                </a>
+            
+            
+                <a href="/wms/issues/" class="header-nav-link">
+                    问题列表
+                </a>
+            
+            
+                <a href="/wms/changes/" class="header-nav-link">
+                    变更日志
+                </a>
+            
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/wms/" class="mobile-nav-title-link">LMS接口开发文档</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/wms/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/wms/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/wms/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/status/" class="mobile-nav-link">开发状态</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/wms/issues/" class="mobile-nav-link">问题列表</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">常见问题与解答 二</h2>
+            <div class="post-meta">
+                <span class="post-time">2020-12-31 14:20:58</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/wms/categories/FAQ/">FAQ</a>
+                    
+                </span>
+                
+               
+                
+
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E7%AD%94-%E4%BA%8C"><span class="toc-text">常见问题与解答 二</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%9B%98%E7%82%B9-7"><span class="toc-text">1.盘点(7#)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E7%9B%98%E7%82%B9%E6%8E%A5%E5%8F%A3LMS%E6%A0%A1%E9%AA%8C%E7%82%B9%EF%BC%9A"><span class="toc-text">1.1盘点接口LMS校验点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">1.2常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-1%E5%BF%85%E5%A1%AB%E9%A1%B9%E6%9C%AA%E5%A1%AB%E5%86%99"><span class="toc-text">1.2.1必填项未填写</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0%EF%BC%9A"><span class="toc-text">可能原因：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-text">排查步骤：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-%E5%9F%BA%E7%A1%80%E4%BF%A1%E6%81%AF%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="toc-text">1.2.2 基础信息不一致</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0"><span class="toc-text">可能原因</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-3%E6%B2%A1%E6%9C%89%E6%9D%83%E9%99%90"><span class="toc-text">1.2.3没有权限</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-1"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-4%E7%9B%98%E7%82%B9%E8%AE%B0%E5%BD%95%E5%B7%B2%E7%BB%8F%E5%AD%98%E5%9C%A8"><span class="toc-text">1.2.4盘点记录已经存在</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-2"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-1"><span class="toc-text">排查步骤</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%BB%E7%BB%93%E8%A7%A3%E5%86%BB%EF%BC%88-8-amp-9%EF%BC%89"><span class="toc-text">2.冻结解冻（#8&amp;9）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-LMS%E6%A0%A1%E9%AA%8C%E7%82%B9"><span class="toc-text">2.1 LMS校验点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">2.2常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1%E5%BF%85%E5%A1%AB%E9%A1%B9%E6%9C%AA%E5%A1%AB%E5%86%99"><span class="toc-text">2.2.1必填项未填写</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-3"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-2"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2%E6%9D%A1%E7%A0%81%E7%8A%B6%E6%80%81%E4%B8%8D%E5%90%88%E6%B3%95"><span class="toc-text">2.2.2条码状态不合法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-4"><span class="toc-text">可能原因</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-3%E6%9D%A1%E7%A0%81%E4%B8%8D%E5%AD%98%E5%9C%A8"><span class="toc-text">2.2.3条码不存在</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-4%E6%9D%A1%E7%A0%81%E5%AF%B9%E5%BA%94%E7%9A%84%E4%BB%93%E5%BA%93%E3%80%81%E7%89%A9%E6%96%99%E3%80%81%E6%89%B9%E6%AC%A1-%E4%B8%8D%E6%AD%A3%E7%A1%AE"><span class="toc-text">2.2.4条码对应的仓库、物料、批次    不正确</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-5"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-3"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-5-%E6%9D%A1%E7%A0%81%E4%B8%8D%E5%85%81%E8%AE%B8%E7%9B%B8%E5%BA%94%E6%93%8D%E4%BD%9C"><span class="toc-text">2.2.5 条码不允许相应操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-6%E6%9D%A1%E7%A0%81%E7%8A%B6%E6%80%81%E4%B8%80%E8%87%B4%EF%BC%8C%E6%97%A0%E9%9C%80%E9%87%8D%E5%A4%8D%E6%93%8D%E4%BD%9C"><span class="toc-text">2.2.6条码状态一致，无需重复操作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-6"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-4"><span class="toc-text">排查步骤</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%A7%E5%93%81%E4%B8%BB%E6%95%B0%E6%8D%AE%EF%BC%88-10%EF%BC%89"><span class="toc-text">3.产品主数据（#10）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-LMS%E6%A0%A1%E9%AA%8C%E7%82%B9"><span class="toc-text">3.1 LMS校验点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">3.2常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-1%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF%E5%90%8C%E6%AD%A5WMS%E5%A4%B1%E8%B4%A5"><span class="toc-text">3.2.1产品信息同步WMS失败</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-7"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-5"><span class="toc-text">排查步骤</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-CRM%E4%B8%BB%E6%95%B0%E6%8D%AE%EF%BC%88-11%EF%BC%89"><span class="toc-text">4.CRM主数据（#11）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-LMS%E6%A0%A1%E9%AA%8C%E7%82%B9"><span class="toc-text">4.1 LMS校验点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">4.2 常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-1CRM%E4%BF%A1%E6%81%AF%E5%90%8C%E6%AD%A5WMS%E5%A4%B1%E8%B4%A5"><span class="toc-text">4.2.1CRM信息同步WMS失败</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-8"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-6"><span class="toc-text">排查步骤</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%BA%93%E5%AD%98%E8%BD%AC%E7%A7%BB%EF%BC%88-12%EF%BC%89"><span class="toc-text">5. 库存转移（#12）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-LMS%E6%A0%A1%E9%AA%8C%E7%82%B9"><span class="toc-text">5.1 LMS校验点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">5.2常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-1%E5%BF%85%E5%A1%AB%E9%A1%B9%E6%9C%AA%E5%A1%AB%E5%86%99"><span class="toc-text">5.2.1必填项未填写</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-9"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-7"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-%E6%95%B0%E6%8D%AE%E9%A1%B9%E4%B8%8D%E5%AD%98%E5%9C%A8"><span class="toc-text">5.2.2 ***数据项不存在</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-10"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-8"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-3%E6%BA%90%E4%BB%93%E5%BA%93%E4%B8%8E%E7%9B%AE%E6%A0%87%E4%BB%93%E5%BA%93%E4%B8%8D%E8%83%BD%E4%B8%80%E6%A0%B7"><span class="toc-text">5.2.3源仓库与目标仓库不能一样</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-11"><span class="toc-text">可能原因</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-4%E6%BA%90%E4%BB%93%E5%BA%93%E5%92%8C%E7%9B%AE%E6%A0%87%E4%BB%93%E5%BA%93%E5%AF%B9%E5%BA%94%E7%9A%84%E7%AB%99%E7%82%B9%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="toc-text">5.2.4源仓库和目标仓库对应的站点不一致</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-12"><span class="toc-text">可能原因</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-5-Barcode-%E6%9C%89%E9%87%8D%E5%A4%8D"><span class="toc-text">5.2.5 Barcode[***]有重复</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-6%E3%80%90-%E3%80%91%E6%95%B0%E9%87%8F%E4%B8%8D%E6%AD%A3%E7%A1%AE"><span class="toc-text">5.2.6【***】数量不正确</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-7%E7%89%A9%E6%96%99%E3%80%90-%E3%80%91%E7%9A%84%E6%95%B0%E9%87%8F%E3%80%90-%E3%80%91%E5%A4%9A%E4%BA%8E%E7%8E%B0%E6%9C%89%E9%87%8F"><span class="toc-text">5.2.7物料【**】的数量【**】多于现有量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-13"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-9"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-8%E6%9D%A1%E7%A0%81%E5%AF%B9%E5%BA%94%E7%9A%84%E6%BA%90%E4%BB%93%E5%BA%93%E3%80%90-%E3%80%91%E4%B8%8ELMS%E5%AF%B9%E5%BA%94%E7%9A%84%E6%BA%90%E4%BB%93%E5%BA%93%E3%80%90-%E3%80%91%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="toc-text">5.2.8条码对应的源仓库【**】与LMS对应的源仓库【**】不一致</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-14"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-10"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-10%E6%9D%A1%E7%A0%81%E3%80%90-%E3%80%91%E7%8A%B6%E6%80%81%E5%BA%94%E8%AF%A5%E4%B8%BA%E5%9C%A8%E5%BA%93"><span class="toc-text">5.2.10条码【****】状态应该为在库</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-15"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-11"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-11%E7%89%A9%E6%96%99%EF%BC%9A-%EF%BC%8C%E6%89%B9%E6%AC%A1%EF%BC%9A-%E7%9A%84%E6%95%B0%E9%87%8F-%E5%A4%9A%E4%BA%8E%E7%8E%B0%E6%9C%89%E9%87%8F"><span class="toc-text">5.2.11物料：*** ，批次：*** 的数量*** 多于现有量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-16"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-12"><span class="toc-text">排查步骤</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-12%E6%82%A8%E6%B2%A1%E6%9C%89%E6%BA%90%E4%BB%93%E5%BA%93%E3%80%90-%E3%80%91%E5%AF%B9%E5%BA%94%E7%AB%99%E7%82%B9%E3%80%90%E3%80%91%E7%9A%84%E6%9D%83%E9%99%90"><span class="toc-text">5.2.12您没有源仓库【*】对应站点【】的权限</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0-17"><span class="toc-text">可能原因</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4-13"><span class="toc-text">排查步骤</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h1 id="常见问题与解答-二"><a href="#常见问题与解答-二" class="headerlink" title="常见问题与解答 二"></a>常见问题与解答 二</h1><h1 id="1-盘点-7"><a href="#1-盘点-7" class="headerlink" title="1.盘点(7#)"></a>1.盘点(7#)</h1><h4 id="1-1盘点接口LMS校验点："><a href="#1-1盘点接口LMS校验点：" class="headerlink" title="1.1盘点接口LMS校验点："></a>1.1盘点接口LMS校验点：</h4><ul>
+<li><p>WMSAPI用户是否配置站点 </p>
+</li>
+<li><p>物料编号不能为空</p>
+</li>
+<li><p>站点不能为空</p>
+</li>
+<li><p>数量不能为空</p>
+</li>
+<li><p>仓库不能为空</p>
+</li>
+<li><p>批号不能为空</p>
+</li>
+<li><p>仓库不能为空</p>
+</li>
+<li><p>状态不能为空</p>
+</li>
+<li><p>盘点日期不能为空</p>
+</li>
+<li><p>物料编号在 LMS 中是否存在</p>
+</li>
+<li><p>站点在 LMS 中是否存在</p>
+</li>
+<li><p>仓库在LMS中是否存在</p>
+</li>
+<li><p>WMSAPI用户是否拥有站点权限</p>
+</li>
+<li><p>盘点记录是否存在，即：同一个站点、仓库、物料、批号、同一天只能有一条记录</p>
+<a id="more"></a>
+
+</li>
+</ul>
+<h3 id="1-2常见问题"><a href="#1-2常见问题" class="headerlink" title="1.2常见问题"></a>1.2常见问题</h3><h5 id="1-2-1必填项未填写"><a href="#1-2-1必填项未填写" class="headerlink" title="1.2.1必填项未填写"></a>1.2.1必填项未填写</h5><h6 id="可能原因："><a href="#可能原因：" class="headerlink" title="可能原因："></a>可能原因：</h6><p>​    物料号、站点、仓库、数量、状态、盘点日期、批次等必填项未指定值</p>
+<h6 id="排查步骤："><a href="#排查步骤：" class="headerlink" title="排查步骤："></a>排查步骤：</h6><p>​    WMS排查回传报文的完整性</p>
+<h5 id="1-2-2-基础信息不一致"><a href="#1-2-2-基础信息不一致" class="headerlink" title="1.2.2 基础信息不一致"></a>1.2.2 基础信息不一致</h5><h6 id="可能原因"><a href="#可能原因" class="headerlink" title="可能原因"></a>可能原因</h6><p>​    物料、站点、仓库 等在LMS中不存在</p>
+<p>排查步骤：</p>
+<p>​    WMS 排查推送数据对应的仓库、站点、物料基础数据的正确性</p>
+<h5 id="1-2-3没有权限"><a href="#1-2-3没有权限" class="headerlink" title="1.2.3没有权限"></a>1.2.3没有权限</h5><h6 id="可能原因-1"><a href="#可能原因-1" class="headerlink" title="可能原因"></a>可能原因</h6><p>​        当前WMSAPI用户没有站点权限</p>
+<h6 id="排查步骤"><a href="#排查步骤" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>​        联系LMS给当前WMSAPI用户配置相应的站点权限</p>
+<h5 id="1-2-4盘点记录已经存在"><a href="#1-2-4盘点记录已经存在" class="headerlink" title="1.2.4盘点记录已经存在"></a>1.2.4盘点记录已经存在</h5><h6 id="可能原因-2"><a href="#可能原因-2" class="headerlink" title="可能原因"></a>可能原因</h6><p>​        LMS已经存在盘点记录，判断条件 站点+仓库+物料+批次+盘点日期</p>
+<h6 id="排查步骤-1"><a href="#排查步骤-1" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>​        WMS已经推送过了盘点数据，无需重复推送</p>
+<h3 id="2-冻结解冻（-8-amp-9）"><a href="#2-冻结解冻（-8-amp-9）" class="headerlink" title="2.冻结解冻（#8&amp;9）"></a>2.冻结解冻（#8&amp;9）</h3><h4 id="2-1-LMS校验点"><a href="#2-1-LMS校验点" class="headerlink" title="2.1 LMS校验点"></a>2.1 LMS校验点</h4><ul>
+<li> WMSAPI用户是否配置站点权限</li>
+<li> 物料号不能为空</li>
+<li> 批次号不能为空</li>
+<li> 仓库不能为空</li>
+<li> 条码不能为空</li>
+<li> 状态不能为空</li>
+<li> 状态只能为冻结（3）、解冻（0）</li>
+<li> 条码是否存在</li>
+<li> 条码对应的仓库、物料、批次是否跟LMS一致</li>
+<li> 当前操作状态跟条码原有状态是否一致</li>
+</ul>
+<h4 id="2-2常见问题"><a href="#2-2常见问题" class="headerlink" title="2.2常见问题"></a>2.2常见问题</h4><h5 id="2-2-1必填项未填写"><a href="#2-2-1必填项未填写" class="headerlink" title="2.2.1必填项未填写"></a>2.2.1必填项未填写</h5><h6 id="可能原因-3"><a href="#可能原因-3" class="headerlink" title="可能原因"></a>可能原因</h6><p>​        物料号、仓库、批号、状态、条码没有指定值</p>
+<h6 id="排查步骤-2"><a href="#排查步骤-2" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>​        WMS排查回传报文完整性</p>
+<h5 id="2-2-2条码状态不合法"><a href="#2-2-2条码状态不合法" class="headerlink" title="2.2.2条码状态不合法"></a>2.2.2条码状态不合法</h5><h6 id="可能原因-4"><a href="#可能原因-4" class="headerlink" title="可能原因"></a>可能原因</h6><p>​        条码推送状态不是  冻结（3）| 解冻（0）这两个值</p>
+<p>排查步骤</p>
+<p>​        WMS排查回传报文对应的状态值</p>
+<h5 id="2-2-3条码不存在"><a href="#2-2-3条码不存在" class="headerlink" title="2.2.3条码不存在"></a>2.2.3条码不存在</h5><p>可能原因</p>
+<p>​        LMS中条码库中没有该条码</p>
+<p>排查步骤</p>
+<p>​        WMS排查条码的正确性</p>
+<h5 id="2-2-4条码对应的仓库、物料、批次-不正确"><a href="#2-2-4条码对应的仓库、物料、批次-不正确" class="headerlink" title="2.2.4条码对应的仓库、物料、批次    不正确"></a>2.2.4条码对应的仓库、物料、批次    不正确</h5><h6 id="可能原因-5"><a href="#可能原因-5" class="headerlink" title="可能原因"></a>可能原因</h6><p>​    WMS推送数据的时候条码 对应的 仓库、物料、批次信息与LMS不一致</p>
+<h6 id="排查步骤-3"><a href="#排查步骤-3" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>​    WMS排查回传报文中相应条码所对应的仓库、物料、批次信息的正确性</p>
+<h5 id="2-2-5-条码不允许相应操作"><a href="#2-2-5-条码不允许相应操作" class="headerlink" title="2.2.5 条码不允许相应操作"></a>2.2.5 条码不允许相应操作</h5><p>可能原因</p>
+<p>​        LMS中该条码的状态不是 正常、已冻结、不良品这三种状态，不允许冻结、解冻操作</p>
+<p>排查步骤 </p>
+<p>​        查询LMS中的条码状态</p>
+<h5 id="2-2-6条码状态一致，无需重复操作"><a href="#2-2-6条码状态一致，无需重复操作" class="headerlink" title="2.2.6条码状态一致，无需重复操作"></a>2.2.6条码状态一致，无需重复操作</h5><h6 id="可能原因-6"><a href="#可能原因-6" class="headerlink" title="可能原因"></a>可能原因</h6><p>​        条码状态已经是 已冻结、正常状态</p>
+<h6 id="排查步骤-4"><a href="#排查步骤-4" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>​        无需操作</p>
+<h3 id="3-产品主数据（-10）"><a href="#3-产品主数据（-10）" class="headerlink" title="3.产品主数据（#10）"></a>3.产品主数据（#10）</h3><p>数据同步触发条件：产品主数据更新</p>
+<h4 id="3-1-LMS校验点"><a href="#3-1-LMS校验点" class="headerlink" title="3.1 LMS校验点"></a>3.1 LMS校验点</h4><p>​        无</p>
+<h4 id="3-2常见问题"><a href="#3-2常见问题" class="headerlink" title="3.2常见问题"></a>3.2常见问题</h4><h5 id="3-2-1产品信息同步WMS失败"><a href="#3-2-1产品信息同步WMS失败" class="headerlink" title="3.2.1产品信息同步WMS失败"></a>3.2.1产品信息同步WMS失败</h5><h6 id="可能原因-7"><a href="#可能原因-7" class="headerlink" title="可能原因"></a>可能原因</h6><p>​        网络异常、WMS接收异常</p>
+<h6 id="排查步骤-5"><a href="#排查步骤-5" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>​        查询相应推送日志，重新推送数据到同步失败的WMS即可  </p>
+<p>​        联系WMS排查接收数据异常问题</p>
+<h3 id="4-CRM主数据（-11）"><a href="#4-CRM主数据（-11）" class="headerlink" title="4.CRM主数据（#11）"></a>4.CRM主数据（#11）</h3><p>触发条件：CRM物料需求主数据头或者行信息更新</p>
+<h4 id="4-1-LMS校验点"><a href="#4-1-LMS校验点" class="headerlink" title="4.1 LMS校验点"></a>4.1 LMS校验点</h4><p>无</p>
+<h4 id="4-2-常见问题"><a href="#4-2-常见问题" class="headerlink" title="4.2 常见问题"></a>4.2 常见问题</h4><h5 id="4-2-1CRM信息同步WMS失败"><a href="#4-2-1CRM信息同步WMS失败" class="headerlink" title="4.2.1CRM信息同步WMS失败"></a>4.2.1CRM信息同步WMS失败</h5><h6 id="可能原因-8"><a href="#可能原因-8" class="headerlink" title="可能原因"></a>可能原因</h6><p>​        网络异常、WMS接收异常</p>
+<h6 id="排查步骤-6"><a href="#排查步骤-6" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>​        查询相应推送日志，重新推送数据到同步失败的WMS即可 </p>
+<p>​        联系WMS排查接口异常问题 </p>
+<h3 id="5-库存转移（-12）"><a href="#5-库存转移（-12）" class="headerlink" title="5. 库存转移（#12）"></a>5. 库存转移（#12）</h3><h4 id="5-1-LMS校验点"><a href="#5-1-LMS校验点" class="headerlink" title="5.1 LMS校验点"></a>5.1 LMS校验点</h4><ul>
+<li><p>WMSAPI用户是否配置站点权限</p>
+</li>
+<li><p>物料编号不能为空</p>
+</li>
+<li><p>业务日期不能为空</p>
+</li>
+<li><p>源仓库不能为空</p>
+</li>
+<li><p>数量不能为空</p>
+</li>
+<li><p>日记账类型不能为空</p>
+</li>
+<li><p>日记账类型不合法（日记账类型只能是Transfer 或者 Move）</p>
+</li>
+<li><p>物料号在LMS存在</p>
+</li>
+<li><p>源仓库在LMS存在</p>
+</li>
+<li><p>源仓库对应的站点存在</p>
+</li>
+<li><p>WMSAPI用户拥有源仓库对应的站点权限</p>
+</li>
+</ul>
+<p>当日记账类型为Transfer时，即为库存转移时</p>
+<ul>
+<li><p>条码不能为空</p>
+</li>
+<li><p>目标仓库不能为空</p>
+</li>
+<li><p>目标仓库在LMS存在</p>
+</li>
+<li><p>条码不能重复</p>
+</li>
+<li><p>源仓库和目标仓库不能一样</p>
+</li>
+<li><p>目标仓库对应的站点存在</p>
+</li>
+<li><p>WMSAPI 用户有用目标仓库对应的站点权限</p>
+</li>
+<li><p>数量 需 等于 Barcode 个数</p>
+</li>
+<li><p>条码存在</p>
+</li>
+<li><p>条码对应的仓库要与当前推送数据的源仓库一致</p>
+</li>
+<li><p>条码的物流状态为在库</p>
+</li>
+<li><p>WMSAPI用户需要拥有 条码对应的站点的权限</p>
+</li>
+<li><p>条码已经生产日记账，不能重复推送</p>
+</li>
+<li><p>转移数量不能大于现有量（比对 仓库+物料的数量）</p>
+</li>
+</ul>
+<p> 当日记账类型为Move时，即为其他出入库时</p>
+<ul>
+<li><p>批次号不能为空</p>
+</li>
+<li><p>数量为负数时，数量的绝对值须小于  仓库+物料+批次 的现有量 </p>
+</li>
+</ul>
+<h4 id="5-2常见问题"><a href="#5-2常见问题" class="headerlink" title="5.2常见问题"></a>5.2常见问题</h4><h5 id="5-2-1必填项未填写"><a href="#5-2-1必填项未填写" class="headerlink" title="5.2.1必填项未填写"></a>5.2.1必填项未填写</h5><h6 id="可能原因-9"><a href="#可能原因-9" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​    物料号、源仓库、业务日期、日记账类型、数量 等必填项 未指定值</p>
+<p>  ​    如果日记账类型为Transfer时</p>
+<p>  ​        目标仓库、条码等必填项未指定值</p>
+<p>  ​    如果日记账类型为Move时</p>
+<p>  ​        批次号等必填项未指定值</p>
+<h6 id="排查步骤-7"><a href="#排查步骤-7" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>  ​    WMS 根据返回报文检查相应数据的完整性</p>
+<h5 id="5-2-2-数据项不存在"><a href="#5-2-2-数据项不存在" class="headerlink" title="5.2.2 ***数据项不存在"></a>5.2.2 ***数据项不存在</h5><h6 id="可能原因-10"><a href="#可能原因-10" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​        ***数据项在LMS中没有找到对应项</p>
+<h6 id="排查步骤-8"><a href="#排查步骤-8" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>  ​        WMS根据返回报文检查相应数据项的正确性和一致性</p>
+<h5 id="5-2-3源仓库与目标仓库不能一样"><a href="#5-2-3源仓库与目标仓库不能一样" class="headerlink" title="5.2.3源仓库与目标仓库不能一样"></a>5.2.3源仓库与目标仓库不能一样</h5><h6 id="可能原因-11"><a href="#可能原因-11" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​        日记账类型是Transfer时，源仓库和目标仓库不能一样</p>
+<p>  排查步骤：</p>
+<p>  ​        WMS排查对应的转移数据的源仓库和目标仓库，修正数据确保源仓和目标仓不同</p>
+<h5 id="5-2-4源仓库和目标仓库对应的站点不一致"><a href="#5-2-4源仓库和目标仓库对应的站点不一致" class="headerlink" title="5.2.4源仓库和目标仓库对应的站点不一致"></a>5.2.4源仓库和目标仓库对应的站点不一致</h5><h6 id="可能原因-12"><a href="#可能原因-12" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​        日记账类型是Transfer时，源仓库和目标仓库所对应的站点 不一致，不能跨站点操作</p>
+<p>  排查步骤：</p>
+<p>  ​        排查源仓库和目标仓库 所属的站点信息，是否同属同一个站点，</p>
+<p>  ​        如果确实不同属于一个站点，且有类似需求，须走订单形式，而不是库存转移</p>
+<h5 id="5-2-5-Barcode-有重复"><a href="#5-2-5-Barcode-有重复" class="headerlink" title="5.2.5 Barcode[***]有重复"></a>5.2.5 Barcode[***]有重复</h5><p>  可能原因</p>
+<p>  ​        WMS推送数据时，重复的条码</p>
+<p>  排查步骤</p>
+<p>  ​        WMS根据返回报文查找重读的条码，排查wms推送时重复原因</p>
+<h5 id="5-2-6【-】数量不正确"><a href="#5-2-6【-】数量不正确" class="headerlink" title="5.2.6【***】数量不正确"></a>5.2.6【***】数量不正确</h5><p>  可能原因</p>
+<p>  ​        WMS推送数据时，传送的Qty数量与条码个数不一致</p>
+<p>  排查步骤</p>
+<p>  ​        WMS根据报文比对传送数量与条码个数做比对，确认一致，在做数据推送</p>
+<h5 id="5-2-7物料【-】的数量【-】多于现有量"><a href="#5-2-7物料【-】的数量【-】多于现有量" class="headerlink" title="5.2.7物料【**】的数量【**】多于现有量"></a>5.2.7物料【**<strong>】的数量【**</strong>】多于现有量</h5><h6 id="可能原因-13"><a href="#可能原因-13" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​        库存转移时，WMS推送的物料对应的条码数量，多于LMS的现有库存量</p>
+<h6 id="排查步骤-9"><a href="#排查步骤-9" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>  ​        根据回传报文比对WMS中 物料的库存 和 LMS的库存现有量</p>
+<p>  ​        比对两边的差异，由运维人员介入排查差异原因</p>
+<h5 id="5-2-8条码对应的源仓库【-】与LMS对应的源仓库【-】不一致"><a href="#5-2-8条码对应的源仓库【-】与LMS对应的源仓库【-】不一致" class="headerlink" title="5.2.8条码对应的源仓库【**】与LMS对应的源仓库【**】不一致"></a>5.2.8条码对应的源仓库【**<strong>】与LMS对应的源仓库【**</strong>】不一致</h5><h6 id="可能原因-14"><a href="#可能原因-14" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​        WMS 中条码所属仓库基础信息与LMS中条码信息不一致</p>
+<h6 id="排查步骤-10"><a href="#排查步骤-10" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>  ​        WMS 排查条码的交易记录，比对LMS中条码的交易记录 </p>
+<p>  ​            排查两边的交易记录差异，确认差异的原因</p>
+<h5 id="5-2-10条码【-】状态应该为在库"><a href="#5-2-10条码【-】状态应该为在库" class="headerlink" title="5.2.10条码【****】状态应该为在库"></a>5.2.10条码【****】状态应该为在库</h5><h6 id="可能原因-15"><a href="#可能原因-15" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​        LMS中相应条码的状态不是在库状态</p>
+<h6 id="排查步骤-11"><a href="#排查步骤-11" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>  ​        在LMS排查该条码对应的交易记录，与WMS中条码的交易记录信息比对，</p>
+<p>  排查差异原因</p>
+<h5 id="5-2-11物料：-，批次：-的数量-多于现有量"><a href="#5-2-11物料：-，批次：-的数量-多于现有量" class="headerlink" title="5.2.11物料：*** ，批次：*** 的数量*** 多于现有量"></a>5.2.11物料：*** ，批次：*** 的数量*** 多于现有量</h5><h6 id="可能原因-16"><a href="#可能原因-16" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​        在其他出库时，出库数量 大于LMS现有库存量数</p>
+<h6 id="排查步骤-12"><a href="#排查步骤-12" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>  ​        减少其他出库数量，同时排查WMS库存数量与LMS库存数量差异</p>
+<h5 id="5-2-12您没有源仓库【-】对应站点【】的权限"><a href="#5-2-12您没有源仓库【-】对应站点【】的权限" class="headerlink" title="5.2.12您没有源仓库【*】对应站点【】的权限"></a>5.2.12您没有源仓库【*<strong><em>】对应站点【</em></strong>】的权限</h5><h6 id="可能原因-17"><a href="#可能原因-17" class="headerlink" title="可能原因"></a>可能原因</h6><p>  ​        当前WMSAPI用户没有配置 源仓库对应站点的权限</p>
+<h6 id="排查步骤-13"><a href="#排查步骤-13" class="headerlink" title="排查步骤"></a>排查步骤</h6><p>  ​        联系LMS运维，设置相关站点权限</p>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/wms/tags/FAQ/" title="FAQ">FAQ</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+        
+            <a class="next" href="/wms/2020/12/29/faq/">
+                <span class="nav-default">常见问题与解答</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2020
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">LMS</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/wms/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>
