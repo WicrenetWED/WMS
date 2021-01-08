@@ -355,15 +355,17 @@
 </li>
 <li><p><strong>与下发的条码不一致</strong></p>
 <ol>
-<li><p>订单属于<strong>采购订单</strong></p>
+<li><p>订单属于<strong>采购订单(始发仓为工厂、TB工厂、进口仓库)</strong></p>
 <p>按<strong>实收条码</strong>上传， 状态设置为<strong>异常</strong>， 原因设置为：<strong>采购单收货与下发条码不一致 或者其他，不能为空。</strong></p>
 </li>
-<li><p>订单属于<strong>转移单接收</strong></p>
+<li><p>订单属于<strong>转仓单(始发仓为BP二程八大仓)</strong></p>
 <p>这个场景比较复杂影响了LMS，始发仓WMS，收货仓WMS。</p>
-<p>a. 发邮件至 <strong>LMS</strong> 和<strong>始发仓WMS</strong>的运维组</p>
+<p>a. 发邮件至 <strong>LMS</strong> 和<strong>始发仓WMS</strong>的仓库人员</p>
 <p>b. 按<strong>实收条码</strong>上传</p>
 <p>c. 状态设置为<strong>异常</strong></p>
 <p>d. 原因设置为：<strong>转移单接收与下发条码不一致 或者其他，不能为空。</strong></p>
+<p><strong>线下操作：</strong></p>
+<p>三方线下核实完成后，始发仓WMS和LMS同时替换正确的条码。</p>
 </li>
 </ol>
 </li>
