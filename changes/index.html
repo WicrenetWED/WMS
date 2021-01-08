@@ -147,11 +147,11 @@
 </li>
 </ul>
 <h2 id="5-发货通知-amp-入库通知"><a href="#5-发货通知-amp-入库通知" class="headerlink" title="5 发货通知 &amp; 入库通知"></a>5 发货通知 &amp; 入库通知</h2><h4 id="新增特殊场景阐述"><a href="#新增特殊场景阐述" class="headerlink" title="新增特殊场景阐述"></a>新增特殊场景阐述</h4><ul>
-<li><p><strong>销售退单场景</strong></p>
+<li><p><strong>销售退单场景</strong>（入库通知下发）</p>
 <p><strong>销售</strong>的<strong>退单</strong>，LMS下发的数量Qty为<strong>负数</strong>， 因此请 根据数量<strong>Qty</strong>字段是否为<strong>负数</strong>来判断该运单是否为退单</p>
 </li>
-<li><p><strong>取消整个运单场景</strong></p>
-<p><strong>取消整个运单</strong>时，这属于<strong>取消了整个运输计划</strong>情况，LMS下发的订运单的<strong>运单状态</strong>都为<strong>已取消</strong>。 建议以下发的运单状态<strong>LoadStatus</strong>字段来判断是否取消整个运单，或者只要WMS发现报文中任意一个订运单的运单状态为已取消，就可以认为整个运单已取消了。</p>
+<li><p><strong>取消整个运单场景</strong> </p>
+<p><strong>取消整个运单</strong>时，这属于<strong>删除或者取消了整个运输计划</strong>情况，LMS下发的订运单的<strong>运单状态</strong>都为<strong>已取消</strong>。 建议以下发的运单状态<strong>LoadStatus</strong>字段来判断是否取消整个运单（发货、收货通知），或者只要WMS发现报文中任意一个订运单的运单状态为已取消，就可以认为整个运单已取消了。</p>
 </li>
 <li><p><strong>删除或增加运单中某个订单场景</strong></p>
 <p>如果运单中新增或者删除了部分订单，这属于运输计划<strong>更正</strong>情况，LMS会重新推送整个运单，WMS收到后需要执行<strong>覆盖</strong>逻辑，以确保整个运单和LMS一致。</p>
