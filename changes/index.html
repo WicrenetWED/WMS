@@ -127,6 +127,45 @@
 </li>
 </ol>
 <h1 id="2020-12-29-日志"><a href="#2020-12-29-日志" class="headerlink" title="2020-12-29 日志"></a>2020-12-29 日志</h1><h3 id="反馈盘点结果"><a href="#反馈盘点结果" class="headerlink" title="反馈盘点结果"></a>反馈盘点结果</h3><p>移除托盘字段 因盘点请虚拟仓+SKU+批次的数量汇总即可， 无需提供托盘信息</p>
+<h1 id="2021-01-08-日志"><a href="#2021-01-08-日志" class="headerlink" title="2021-01-08 日志"></a>2021-01-08 日志</h1><h2 id="4-收货完成"><a href="#4-收货完成" class="headerlink" title="4 收货完成"></a>4 收货完成</h2><p>新增异常场景描述</p>
+<h2 id="4-8-异常收货处理策略"><a href="#4-8-异常收货处理策略" class="headerlink" title="4.8 异常收货处理策略"></a>4.8 异常收货处理策略</h2><ul>
+<li><p><strong>缺件</strong> 现场收货少了一件或者多件货物</p>
+<p>例如：订单数量100件，而实收99件，1件破损或者丢失无法入库   因要求回传时数量要与订单一致，缺少的1件处理方案如下： </p>
+<ol>
+<li>自编一个<strong>万能码</strong></li>
+<li>状态设置为<strong>异常</strong> </li>
+<li>原因设置为： <strong>缺件</strong>      （原因一定要设置为 “缺件”）</li>
+</ol>
+</li>
+<li><p><strong>与下发的条码不一致</strong></p>
+<ol>
+<li><p>订单属于<strong>采购订单</strong></p>
+<p>按<strong>实收条码</strong>上传， 状态设置为<strong>异常</strong>， 原因设置为：<strong>采购单收货与下发条码不一致 或者其他，不能为空。</strong></p>
+</li>
+<li><p>订单属于<strong>转移单接收</strong></p>
+<p>这个场景比较复杂影响了LMS，始发仓WMS，收货仓WMS。</p>
+<p>a. 发邮件至 <strong>LMS</strong> 和<strong>始发仓WMS</strong>的运维组</p>
+<p>b. 按<strong>实收条码</strong>上传</p>
+<p>c. 状态设置为<strong>异常</strong></p>
+<p>d. 原因设置为：<strong>转移单接收与下发条码不一致 或者其他，不能为空。</strong></p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="5-发货通知-amp-入库通知"><a href="#5-发货通知-amp-入库通知" class="headerlink" title="5 发货通知 &amp; 入库通知"></a>5 发货通知 &amp; 入库通知</h2><h4 id="新增特殊场景阐述"><a href="#新增特殊场景阐述" class="headerlink" title="新增特殊场景阐述"></a>新增特殊场景阐述</h4><ul>
+<li><p><strong>销售退单场景</strong></p>
+<p><strong>销售</strong>的<strong>退单</strong>，LMS下发的数量Qty为<strong>负数</strong>， 因此请 根据数量<strong>Qty</strong>字段是否为<strong>负数</strong>来判断该运单是否为退单</p>
+</li>
+<li><p><strong>取消整个运单场景</strong></p>
+<p><strong>取消整个运单</strong>时，这属于<strong>取消了整个运输计划</strong>情况，LMS下发的订运单的<strong>运单状态</strong>都为<strong>已取消</strong>。 建议以下发的运单状态<strong>LoadStatus</strong>字段来判断是否取消整个运单，或者只要WMS发现报文中任意一个订运单的运单状态为已取消，就可以认为整个运单已取消了。</p>
+</li>
+<li><p><strong>删除或增加运单中某个订单场景</strong></p>
+<p>如果运单中新增或者删除了部分订单，这属于<strong>运输计划</strong>更正情况，LMS会重新推送整个运单，WMS收到后需要执行<strong>覆盖</strong>逻辑，以确保整个运单和LMS一致。</p>
+</li>
+<li><p><strong>删除或增加订运单中某个SKU的场景</strong></p>
+<p>如果删除或增加订运单中某个SKU，这也属于<strong>运输计划</strong>更正情况，LMS会重新推送整个运单，WMS收到后需要执行<strong>覆盖</strong>逻辑，以确保整个运单和LMS一致。</p>
+</li>
+</ul>
 
 </div>
     </div>

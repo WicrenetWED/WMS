@@ -114,7 +114,7 @@
                
                 
                     <span class="post-visit"> 更新于
-                        <span class="post-time">2020-12-24 19:13:39</span>
+                        <span class="post-time">2021-01-08 11:58:39</span>
                     </span>
                 
 
@@ -123,7 +123,7 @@
         </div>
         <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%94%B6%E8%B4%A7%E5%AE%8C%E6%88%90"><span class="toc-text">4 收货完成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">4.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%AF%B7%E6%B1%82URL%E5%8F%8A%E6%96%B9%E5%BC%8F"><span class="toc-text">4.2 请求URL及方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">4.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">4.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B"><span class="toc-text">4.5 请求示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">4.6 返回示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E7%9B%B8%E5%85%B3%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86"><span class="toc-text">4.7  相关业务知识</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%94%B6%E8%B4%A7%E5%AE%8C%E6%88%90"><span class="toc-text">4 收货完成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">4.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%AF%B7%E6%B1%82URL%E5%8F%8A%E6%96%B9%E5%BC%8F"><span class="toc-text">4.2 请求URL及方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">4.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">4.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B"><span class="toc-text">4.5 请求示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">4.6 返回示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E7%9B%B8%E5%85%B3%E4%B8%9A%E5%8A%A1%E7%9F%A5%E8%AF%86"><span class="toc-text">4.7  相关业务知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E5%BC%82%E5%B8%B8%E6%94%B6%E8%B4%A7%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5"><span class="toc-text">4.8 异常收货处理策略</span></a></li></ol></li></ol>
     <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
@@ -342,6 +342,30 @@
 <li><p>批号：从第17位至第24位  0H200479</p>
 </li>
 <li><p>序列号：从第25位至第31位</p>
+</li>
+</ul>
+<h2 id="4-8-异常收货处理策略"><a href="#4-8-异常收货处理策略" class="headerlink" title="4.8 异常收货处理策略"></a>4.8 异常收货处理策略</h2><ul>
+<li><p><strong>缺件</strong> 现场收货少了一件或者多件货物</p>
+<p>例如：订单数量100件，而实收99件，1件破损或者丢失无法入库。因要求回传时数量要与订单一致，缺少的1件处理方案如下： </p>
+<ol>
+<li>自编一个<strong>万能码</strong></li>
+<li>状态设置为<strong>异常</strong> </li>
+<li> 原因设置为： <strong>缺件</strong>      原因一定要设置为 “缺件”</li>
+</ol>
+</li>
+<li><p><strong>与下发的条码不一致</strong></p>
+<ol>
+<li><p>订单属于<strong>采购订单</strong></p>
+<p>按<strong>实收条码</strong>上传， 状态设置为<strong>异常</strong>， 原因设置为：<strong>采购单收货与下发条码不一致 或者其他，不能为空。</strong></p>
+</li>
+<li><p>订单属于<strong>转移单接收</strong></p>
+<p>这个场景比较复杂影响了LMS，始发仓WMS，收货仓WMS。</p>
+<p>a. 发邮件至 <strong>LMS</strong> 和<strong>始发仓WMS</strong>的运维组</p>
+<p>b. 按<strong>实收条码</strong>上传</p>
+<p>c. 状态设置为<strong>异常</strong></p>
+<p>d. 原因设置为：<strong>转移单接收与下发条码不一致 或者其他，不能为空。</strong></p>
+</li>
+</ol>
 </li>
 </ul>
 

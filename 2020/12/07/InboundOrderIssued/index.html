@@ -114,7 +114,7 @@
                
                 
                     <span class="post-visit"> 更新于
-                        <span class="post-time">2020-12-11 13:48:39</span>
+                        <span class="post-time">2021-01-08 10:49:39</span>
                     </span>
                 
 
@@ -123,7 +123,7 @@
         </div>
         <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%85%A5%E5%BA%93%E9%80%9A%E7%9F%A5%E4%B8%8B%E5%8F%91"><span class="toc-text">3 入库通知下发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">3.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E8%AF%B7%E6%B1%82URL%E4%B8%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">3.2 请求URL与方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">3.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">3.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E4%B8%8B%E5%8F%91%E5%85%A5%E5%BA%93%E8%AE%A2%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.5 下发入库订单示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.6 返回示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E8%AE%A2%E5%8D%95%E4%B8%8B%E5%8F%91%E6%97%B6%E7%8A%B6%E6%80%81"><span class="toc-text">3.7 订单下发时状态</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%85%A5%E5%BA%93%E9%80%9A%E7%9F%A5%E4%B8%8B%E5%8F%91"><span class="toc-text">3 入库通知下发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-text">3.1 接口说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E8%AF%B7%E6%B1%82URL%E4%B8%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">3.2 请求URL与方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">3.3 输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="toc-text">3.4 输出参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E4%B8%8B%E5%8F%91%E5%85%A5%E5%BA%93%E8%AE%A2%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.5 下发入库订单示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E8%BF%94%E5%9B%9E%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.6 返回示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E8%AE%A2%E5%8D%95%E4%B8%8B%E5%8F%91%E6%97%B6%E7%8A%B6%E6%80%81"><span class="toc-text">3.7 订单下发时状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-%E7%89%B9%E6%AE%8A%E5%9C%BA%E6%99%AF"><span class="toc-text">3.8 特殊场景</span></a></li></ol></li></ol>
     <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
@@ -505,13 +505,20 @@
 <td>已取消</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p><strong>注：</strong></p>
-<blockquote>
-<p><strong>销售订单</strong>的<strong>退单</strong>下发时运单状态为<strong>打开</strong>， 建议以下发的数量<strong>Qty</strong>字段是否为<strong>负数</strong>来判断</p>
-<p><strong>取消订运单</strong>时订单类型不变，仅仅下发的<strong>运单状态</strong>为<strong>已取消</strong>， 建议以下发的运单状态<strong>LoadStatus</strong>来判断是否取消订运单</p>
-</blockquote>
-</blockquote>
+<h2 id="3-8-特殊场景"><a href="#3-8-特殊场景" class="headerlink" title="3.8 特殊场景"></a>3.8 特殊场景</h2><ul>
+<li><p><strong>销售退单场景</strong></p>
+<p><strong>销售</strong>的<strong>退单</strong>，LMS下发的数量Qty为<strong>负数</strong>， 因此请 根据数量<strong>Qty</strong>字段是否为<strong>负数</strong>来判断该运单是否为退单</p>
+</li>
+<li><p><strong>取消整个运单场景</strong></p>
+<p><strong>取消整个运单</strong>时，这属于<strong>取消了整个运输计划</strong>情况，LMS下发的订运单的<strong>运单状态</strong>都为<strong>已取消</strong>。 建议以下发的运单状态<strong>LoadStatus</strong>字段来判断是否取消整个运单，或者只要WMS发现报文中任意一个订运单的运单状态为已取消，就可以认为整个运单已取消了。</p>
+</li>
+<li><p><strong>删除或增加运单中某个订单场景</strong></p>
+<p>如果运单中新增或者删除了部分订单，这属于<strong>运输计划</strong>更正情况，LMS会重新推送整个运单，WMS收到后需要执行<strong>覆盖</strong>逻辑，以确保整个运单和LMS一致。</p>
+</li>
+<li><p><strong>删除或增加订运单中某个SKU的场景</strong></p>
+<p>如果删除或增加订运单中某个SKU，这也属于<strong>运输计划</strong>更正情况，LMS会重新推送整个运单，WMS收到后需要执行<strong>覆盖</strong>逻辑，以确保整个运单和LMS一致。</p>
+</li>
+</ul>
 
         </div>
         
